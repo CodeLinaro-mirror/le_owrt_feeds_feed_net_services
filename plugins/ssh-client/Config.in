@@ -1,0 +1,20 @@
+config PACKAGE_ssh-client
+    tristate
+    select SAH_AMX_SSH_CLIENT
+
+if PACKAGE_ssh-client
+
+menu "Select ssh-client build options"
+    depends on PACKAGE_ssh-client
+
+config SAH_AMX_SSH_CLIENT
+    bool "Build ssh client plug-in"
+    default y
+
+config SAH_AMX_SSH_CLIENT_ORDER
+    int "start up order of ssh client plugin"
+    default 81
+
+endmenu
+
+endif
