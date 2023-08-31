@@ -1,0 +1,20 @@
+config PACKAGE_tr181-upnpdiscovery
+    tristate
+    select SAH_AMX_TR181_UPNPDISCOVERY
+
+if PACKAGE_tr181-upnpdiscovery
+
+menu "Select tr181-upnpdiscovery build options"
+    depends on PACKAGE_tr181-upnpdiscovery
+
+config SAH_AMX_TR181_UPNPDISCOVERY
+    bool "Build a tr181 compatible upnp discovery manager"
+    default y
+
+config SAH_AMX_TR181_UPNPDISCOVERY_ORDER
+    int "Start up order for the tr181 upnp discovery manager"
+    default 80
+
+endmenu
+
+endif
