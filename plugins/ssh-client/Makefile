@@ -1,10 +1,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ssh-client
-PKG_VERSION:=v1.0.2
+PKG_VERSION:=v1.0.3
 SHORT_DESCRIPTION:=Process controller Data Model - dbclient
 
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=v1.0.3
+PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/components/ssh-client.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=LICENSE
 
 COMPONENT:=ssh-client
 
@@ -22,6 +29,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=amx
   SUBMENU:=Plugins
   TITLE:=$(SHORT_DESCRIPTION)
+  URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/components/ssh-client
   DEPENDS += +libamxc
   DEPENDS += +libamxp
   DEPENDS += +libamxd
