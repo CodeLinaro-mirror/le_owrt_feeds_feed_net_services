@@ -1,0 +1,20 @@
+config PACKAGE_libbart
+    tristate
+    select SAH_LIB_BART
+
+if PACKAGE_libbart
+
+menu "Select libbart build options"
+    depends on PACKAGE_libbart
+
+config SAH_LIB_BART
+    bool "Build Backup and Restore tools (BaRt) library"
+    default y
+
+config SAH_LIB_BART_PRPL
+    bool "Build the bart library for PRPL when using PCM (PersistentConfigurationManager)"
+    default n
+
+endmenu
+
+endif
