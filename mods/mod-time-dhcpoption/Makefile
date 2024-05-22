@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=mod-time-dhcpoption
-PKG_VERSION:=v0.1.5
+PKG_VERSION:=v0.2.0
 SHORT_DESCRIPTION:=Extra functionality for tr181-time on accesspoints
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.1.5
+PKG_SOURCE_VERSION:=v0.2.0
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-time-dhcpoption.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
