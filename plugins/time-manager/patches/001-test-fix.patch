@@ -1,0 +1,485 @@
+From fac858c175214d33f5f288028cd8c02fa13bb864 Mon Sep 17 00:00:00 2001
+From: Konstantinos Papadimitriou
+ <konstantinos.papadimitriou_ext@softathome.com>
+Date: Thu, 29 Aug 2024 11:39:53 +0200
+Subject: [PATCH] Several fixes to avoid creating too many subprocesses making
+ the plugin unresponsive.
+
+Problem: After the last commit, time-manager used to create too many
+subproccesses calling chronyc with high timeout values. This caused the plugin
+to become unresponsive when the chrony daemon failed to respond in time. At the
+same time mop tests started to fail because after changing the DM the chronyd
+config wasn't properly reapplied.
+
+Solution: Instead of trying to manually re-apply the config file each time
+something changes in the DM or in the uplink interface's state, restart it
+properly at each DM change and only reload the ntp sources when the interface
+state changes.
+
+Issue: HOP-6722 [PrplOs][tr181-time] Time.Status takes more than 90secs to get Synchronized state at startup. [fix]
+Issue: HOP-7294 [time] cpu usage of chrony 38.6% / unbound 48.8% when wan is down [fix]
+Issue: HOP-7261 [regression][time] automated test started failing [fix]
+Issue: HOP-7286 [PRPL][4.0.16.8][System > Date & Time, Automatic Time Update]Changing time zone or Enabling/Disabling Automatic Time Update > Displays 'Something went wrong' [fix]
+---
+ mod-time-chrony-uci/include_priv/chronyc.h    |   5 -
+ mod-time-chrony-uci/include_priv/service.h    |   4 -
+ mod-time-chrony-uci/src/chronyc.c             | 143 +++++-------------
+ mod-time-chrony-uci/src/mod_time_chrony_uci.c |  26 +++-
+ mod-time-chrony-uci/src/ntp_state.c           |   2 +-
+ mod-time-chrony-uci/src/service.c             |  61 +-------
+ mod-time-chrony-uci/src/uci.c                 |   5 -
+ src/configuration/time_configuration.c        |   9 +-
+ src/server/netmodel.c                         |   1 -
+ 9 files changed, 64 insertions(+), 192 deletions(-)
+
+diff --git a/mod-time-chrony-uci/include_priv/chronyc.h b/mod-time-chrony-uci/include_priv/chronyc.h
+index b2516ed..20ef9ef 100644
+--- a/mod-time-chrony-uci/include_priv/chronyc.h
++++ b/mod-time-chrony-uci/include_priv/chronyc.h
+@@ -233,13 +233,8 @@ typedef struct {
+ int chronyc_cmd_tracking(amxc_var_t* result);
+ int chronyc_cmd_reload(void);
+ int chronyc_cmd_refresh(void);
+-int chronyc_cmd_reset(void);
+ int chronyc_cmd_onoffline(bool onoff);
+ int chronyc_cmd_sources(amxc_var_t* result);
+-int chronyc_cmd_add_source(const cstring_t hostname, uint32_t maxpoll, bool iburst);
+-int chronyc_cmd_makestep(uint32_t limit, const cstring_t thres);
+-int chronyc_cmd_allow(const cstring_t iface);
+-int chronyc_cmd_deny(void);
+ 
+ #ifdef __cplusplus
+ }
+diff --git a/mod-time-chrony-uci/include_priv/service.h b/mod-time-chrony-uci/include_priv/service.h
+index 1880bd9..92e367d 100644
+--- a/mod-time-chrony-uci/include_priv/service.h
++++ b/mod-time-chrony-uci/include_priv/service.h
+@@ -71,9 +71,5 @@ bool ntp_daemon_service_running(void);
+ bool ntp_daemon_service_start(amxp_slot_fn_t callback);
+ void ntp_daemon_service_terminate(void);
+ bool ntp_daemon_service_restart(void);
+-void ntp_daemon_add_source(amxc_var_t* values);
+-void ntp_daemon_makestep(amxc_var_t* values);
+-void ntp_daemon_add_allow(amxc_var_t* values);
+-void ntp_daemon_deny_all(void);
+ 
+ #endif //__NTP_DAEMON_SERVICE_H__
+diff --git a/mod-time-chrony-uci/src/chronyc.c b/mod-time-chrony-uci/src/chronyc.c
+index 1ecd3b7..80dbe4b 100644
+--- a/mod-time-chrony-uci/src/chronyc.c
++++ b/mod-time-chrony-uci/src/chronyc.c
+@@ -182,24 +182,31 @@ int chronyc_cmd_tracking(amxc_var_t* result) {
+ }
+ 
+ int chronyc_cmd_reload(void) {
+-    //FIXME: "reload sources" command should be sent to daemon using unix socket
+-    // but the current implementation of unix socket is not working.
+-    // instead a subprocess is used to send the command using chronyc
+-#if 0
+-    CMD_Reply reply;
+     CMD_Request request;
+-    memset(&reply, 0, sizeof(CMD_Reply));
+-    memset(&request, 0, sizeof(CMD_Request));
+-    request.command = htons(REQ_RELOAD_SOURCES);
+-
+-    return request_reply(&request, &reply, RPY_NULL);
+-#else
++    CMD_Reply reply;
+     int rv = -1;
++    uint32_t n_sources = 0;
+     amxp_subproc_t* chronyc_subproc = NULL;
++
++    memset(&reply, 0, sizeof(CMD_Reply));
++    memset(&request, 0, sizeof(CMD_Request));
++    request.command = htons(REQ_N_SOURCES);
++    if(request_reply(&request, &reply, RPY_N_SOURCES) == 0) {
++        SAH_TRACEZ_ERROR(ME, "Failed to get N_SOURCES reply");
++        return 0;
++    }
++    n_sources = ntohl(reply.data.n_sources.n_sources);
++    if(n_sources == 0) {
++        return 0;
++    }
++#if 1
++    // FIXME: "reload sources" command should be sent to daemon using unix socket
++    // but the current implementation of unix socket is not working.
++    // instead a subprocess is used to send the command using chronyc
+     rv = amxp_subproc_new(&chronyc_subproc);
+     when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+ 
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "reload", "sources", NULL);
++    rv = amxp_subproc_start_wait(chronyc_subproc, 80, (char*) "chronyc", "reload", "sources", NULL);
+     when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+ 
+     rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+@@ -207,6 +214,16 @@ int chronyc_cmd_reload(void) {
+ exit:
+     amxp_subproc_delete(&chronyc_subproc);
+     return (rv == 0) ? 1 : 0;
++#else
++    memset(&request, 0, sizeof(CMD_Request));
++    memset(&reply, 0, sizeof(CMD_Reply));
++    request.command = htons(REQ_RELOAD_SOURCES);
++    if(request_reply(&request, &reply, RPY_NULL) == 0) {
++        SAH_TRACEZ_ERROR(ME, "Failed to reload sources");
++        return 0;
++    }
++
++    return 1;
+ #endif
+ }
+ 
+@@ -217,7 +234,7 @@ int chronyc_cmd_refresh(void) {
+     rv = amxp_subproc_new(&chronyc_subproc);
+     when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+ 
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "refresh", NULL);
++    rv = amxp_subproc_start_wait(chronyc_subproc, 80, (char*) "chronyc", "refresh", NULL);
+     when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+     rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+     SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+@@ -227,14 +244,14 @@ exit:
+     return (rv == 0) ? 1 : 0;
+ }
+ 
+-int chronyc_cmd_reset(void) {
++static int chronyc_cmd_reset(void) {
+     int rv = -1;
+     amxp_subproc_t* chronyc_subproc = NULL;
+ 
+     rv = amxp_subproc_new(&chronyc_subproc);
+     when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+ 
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "reset", "sources", NULL);
++    rv = amxp_subproc_start_wait(chronyc_subproc, 80, (char*) "chronyc", "reset", "sources", NULL);
+     when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+     rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+     SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+@@ -251,9 +268,9 @@ int chronyc_cmd_onoffline(bool onoff) {
+     when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+ 
+     if(onoff) {
+-        rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "online", NULL);
++        rv = amxp_subproc_start_wait(chronyc_subproc, 80, (char*) "chronyc", "online", NULL);
+     } else {
+-        rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "offline", NULL);
++        rv = amxp_subproc_start_wait(chronyc_subproc, 80, (char*) "chronyc", "offline", NULL);
+         chronyc_cmd_reset();
+     }
+ 
+@@ -326,95 +343,3 @@ int chronyc_cmd_sources(amxc_var_t* result) {
+ 
+     return 1;
+ }
+-
+-int chronyc_cmd_add_source(const cstring_t hostname, uint32_t maxpoll, bool iburst) {
+-    int rv = -1;
+-    int retries = 0;
+-    amxc_string_t maxpoll_s;
+-
+-    amxc_string_init(&maxpoll_s, 0);
+-    amxc_string_setf(&maxpoll_s, "%u", maxpoll);
+-
+-    /* getaddrinfo() fails right after wan iface is up, so keep trying for a few
+-     * times */
+-    while(retries < 5) {
+-        amxp_subproc_t* chronyc_subproc = NULL;
+-        rv = amxp_subproc_new(&chronyc_subproc);
+-        when_failed_trace(rv, next, ERROR, "Failed to create the subprocess.");
+-
+-        rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "add", "pool", hostname, "maxpoll", amxc_string_get(&maxpoll_s, 0), iburst ? "iburst" : NULL, NULL);
+-        when_failed_trace(rv, next, ERROR, "Failed to start or wait for the subprocess");
+-
+-        rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+-        SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+-        if(rv == 0) {
+-            amxp_subproc_delete(&chronyc_subproc);
+-            break;
+-        }
+-next:
+-        retries += 1;
+-        amxp_subproc_delete(&chronyc_subproc);
+-        sleep(1);
+-    }
+-
+-    amxc_string_clean(&maxpoll_s);
+-    return (rv == 0) ? 1 : 0;
+-}
+-
+-int chronyc_cmd_makestep(uint32_t limit, const cstring_t thres) {
+-    int rv = -1;
+-    amxc_string_t limit_s;
+-    amxp_subproc_t* chronyc_subproc = NULL;
+-
+-    amxc_string_init(&limit_s, 0);
+-    amxc_string_setf(&limit_s, "%u", limit);
+-    rv = amxp_subproc_new(&chronyc_subproc);
+-    when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+-
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "makestep", thres, amxc_string_get(&limit_s, 0), NULL);
+-    when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+-
+-    rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+-    SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+-exit:
+-    amxp_subproc_delete(&chronyc_subproc);
+-    amxc_string_clean(&limit_s);
+-
+-    return (rv == 0) ? 1 : 0;
+-}
+-
+-int chronyc_cmd_allow(const cstring_t iface) {
+-    int rv = -1;
+-    amxp_subproc_t* chronyc_subproc = NULL;
+-
+-    rv = amxp_subproc_new(&chronyc_subproc);
+-    when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+-
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "allow", iface, NULL);
+-    when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+-
+-    rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+-    SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+-exit:
+-    amxp_subproc_delete(&chronyc_subproc);
+-
+-    return (rv == 0) ? 1 : 0;
+-}
+-
+-int chronyc_cmd_deny(void) {
+-    int rv = -1;
+-    amxp_subproc_t* chronyc_subproc = NULL;
+-
+-    rv = amxp_subproc_new(&chronyc_subproc);
+-    when_failed_trace(rv, exit, ERROR, "Failed to create the subprocess.");
+-
+-    rv = amxp_subproc_start_wait(chronyc_subproc, 1000, (char*) "chronyc", "deny", "all", NULL);
+-    when_failed_trace(rv, exit, ERROR, "Failed to start or wait for the subprocess");
+-
+-    rv = amxp_subproc_get_exitstatus(chronyc_subproc);
+-    SAH_TRACEZ_INFO(ME, "subprocess exit code [%d]", rv);
+-exit:
+-    amxp_subproc_delete(&chronyc_subproc);
+-
+-    return (rv == 0) ? 1 : 0;
+-}
+diff --git a/mod-time-chrony-uci/src/mod_time_chrony_uci.c b/mod-time-chrony-uci/src/mod_time_chrony_uci.c
+index 7b9d20d..cf9d1ba 100644
+--- a/mod-time-chrony-uci/src/mod_time_chrony_uci.c
++++ b/mod-time-chrony-uci/src/mod_time_chrony_uci.c
+@@ -113,10 +113,26 @@ exit:
+     return retval;
+ }
+ 
+-static int update_sources_state(UNUSED const char* function_name,
+-                                amxc_var_t* args,
+-                                UNUSED amxc_var_t* ret) {
+-    return chronyc_cmd_onoffline(GET_BOOL(args, NULL)) ? 0 : 1;
++static int reload_sources(UNUSED const char* function_name,
++                          amxc_var_t* args,
++                          amxc_var_t* ret) {
++    bool onoff = GET_BOOL(args, "onoff");
++    int rv = 0;
++
++    when_failed_trace(align_config(args, ret), exit, ERROR, "align chrony config failed");
++    rv = chronyc_cmd_onoffline(onoff);
++    if(onoff) {
++        rv = chronyc_cmd_reload();
++        if(rv == 0) {
++            /* If it failed to reload the sources, we most probably need to
++             * reload the config from scratch. */
++            SAH_TRACEZ_INFO(ME, "(Re)applying the chronyd config");
++            apply_config(true);
++        }
++    }
++
++exit:
++    return !rv;
+ }
+ 
+ static AMXM_CONSTRUCTOR chrony_uci_module_start(void) {
+@@ -125,7 +141,7 @@ static AMXM_CONSTRUCTOR chrony_uci_module_start(void) {
+ 
+     amxm_module_register(&mod, so, MOD_TIME_CTRL);
+     amxm_module_add_function(mod, "update-ntp-config", update_ntp_config);
+-    amxm_module_add_function(mod, "update-sources-state", update_sources_state);
++    amxm_module_add_function(mod, "reload-sources", reload_sources);
+     amxm_module_add_function(mod, "init-daemon", daemon_init);
+     amxm_module_add_function(mod, "service-running", service_running);
+     amxm_module_add_function(mod, "service-terminate", service_terminate);
+diff --git a/mod-time-chrony-uci/src/ntp_state.c b/mod-time-chrony-uci/src/ntp_state.c
+index 37de227..52a9686 100644
+--- a/mod-time-chrony-uci/src/ntp_state.c
++++ b/mod-time-chrony-uci/src/ntp_state.c
+@@ -86,7 +86,7 @@ ntp_sync_state_t get_sync_state(void) {
+     SAH_TRACEZ_INFO(ME, "leap_status %d", leap_status);
+     if(is_leap_indicator_unsynchronized(leap_status)) {
+         state = Unsynchronized;
+-        chronyc_cmd_refresh();
++        chronyc_cmd_reload();
+     } else {
+         state = Synchronized;
+     }
+diff --git a/mod-time-chrony-uci/src/service.c b/mod-time-chrony-uci/src/service.c
+index f977aeb..5f466e1 100644
+--- a/mod-time-chrony-uci/src/service.c
++++ b/mod-time-chrony-uci/src/service.c
+@@ -161,66 +161,11 @@ void ntp_daemon_service_refresh(void) {
+     }
+ }
+ 
+-void ntp_daemon_add_source(amxc_var_t* values) {
+-    const cstring_t iburst_s = GET_CHAR(values, "iburst");
+-    uint32_t maxpoll = GET_UINT32(values, "maxpoll");
+-    const cstring_t hostname = GET_CHAR(values, "hostname");
+-    bool iburst = false;
+-
+-    when_str_empty_trace(hostname, exit, WARNING, "Invalid arguments");
+-    iburst = (iburst_s != NULL) ? (strcmp(iburst_s, "yes") == 0) : false;
+-    if(ntp_daemon_service_running()) {
+-        if(chronyc_cmd_add_source(hostname, maxpoll, iburst) == 0) {
+-            SAH_TRACEZ_WARNING(ME, "Failed to add sources");
+-        }
+-    }
+-exit:
+-    return;
+-}
+-
+-void ntp_daemon_makestep(amxc_var_t* values) {
+-    uint32_t limit = GET_UINT32(values, "limit");
+-    const cstring_t thres = GET_CHAR(values, "threshold");
+-
+-    if(STR_EMPTY(thres)) {
+-        thres = "1.0";
+-    }
+-    if(ntp_daemon_service_running()) {
+-        if(chronyc_cmd_makestep(limit, thres) == 0) {
+-            SAH_TRACEZ_WARNING(ME, "Failed to change stepping parameters");
+-        }
+-    }
+-}
+-
+-void ntp_daemon_add_allow(amxc_var_t* values) {
+-    const cstring_t iface = GET_CHAR(values, "interface");
+-
+-    when_str_empty_trace(iface, exit, WARNING, "Invalid arguments");
+-    if(ntp_daemon_service_running()) {
+-        if(chronyc_cmd_allow(iface) == 0) {
+-            SAH_TRACEZ_WARNING(ME, "Failed to allow access to %s", iface);
+-        }
+-    }
+-exit:
+-    return;
+-}
+-
+-void ntp_daemon_deny_all(void) {
+-    if(ntp_daemon_service_running()) {
+-        if(chronyc_cmd_deny() == 0) {
+-            SAH_TRACEZ_WARNING(ME, "Failed to deny access");
+-        }
+-    }
+-}
+-
+ bool ntp_daemon_service_restart(void) {
+-    bool ret = true;
+-
+-    if(!ntp_daemon_service_running()) {
+-        ret = ntp_daemon_service_start(chronyd.termination_callback);
+-    }
++    bool ret = false;
++    ntp_daemon_service_terminate();
++    ret = ntp_daemon_service_start(chronyd.termination_callback);
+     if(ret) {
+-        chronyc_cmd_reload();
+         ntp_daemon_service_refresh();
+     }
+ 
+diff --git a/mod-time-chrony-uci/src/uci.c b/mod-time-chrony-uci/src/uci.c
+index 741b810..5560def 100644
+--- a/mod-time-chrony-uci/src/uci.c
++++ b/mod-time-chrony-uci/src/uci.c
+@@ -74,7 +74,6 @@
+ #include <amxb/amxb.h>
+ 
+ #include "sequential.h"
+-#include "service.h"
+ 
+ static bool uci_service_reload(const char* service, const char* command) {
+     bool rc = false;
+@@ -432,7 +431,6 @@ static void configure_chrony_makestep(void) {
+     values = amxc_var_add_key(amxc_htable_t, &uci_args, "values", NULL);
+     amxc_var_add_key(cstring_t, values, "threshold", "1.0");
+     amxc_var_add_key(uint32_t, values, "limit", 3);
+-    ntp_daemon_makestep(values);
+ 
+     uci_call("set", &uci_args, ret);
+     amxc_var_clean(&uci_args);
+@@ -513,7 +511,6 @@ static void configure_chrony_allow(amxc_var_t* args) {
+             amxc_var_push(cstring_t, tmp, amxc_string_take_buffer(&allow));
+             values = amxc_var_add_key(amxc_htable_t, &uci_args, "values", NULL);
+             amxc_var_add_key(cstring_t, values, "interface", GETP_CHAR(args, server_interface_path));
+-            ntp_daemon_add_allow(values);
+ 
+             uci_call("set", &uci_args, ret);
+             number += 1;
+@@ -567,7 +564,6 @@ static void configure_chrony_pool(amxc_var_t* args) {
+                 amxc_var_add_key(cstring_t, values, "iburst", iburst);
+                 amxc_var_add_key(uint32_t, values, "maxpoll", maxpoll);
+                 amxc_var_add_key(cstring_t, values, "hostname", GETP_CHAR(server, NULL));
+-                ntp_daemon_add_source(values);
+ 
+                 uci_call("set", &uci_args, NULL);
+                 number += 1;
+@@ -607,7 +603,6 @@ static void uci_write_chrony_config(amxc_var_t* args, amxc_var_t* ret) {
+ 
+     delete_chrony_dhcp_ntp_server();
+     delete_chrony_makestep();
+-    ntp_daemon_deny_all();
+ 
+     create_chrony_dhcp_ntp_server();
+     create_chrony_makestep();
+diff --git a/src/configuration/time_configuration.c b/src/configuration/time_configuration.c
+index 729c713..957b73a 100644
+--- a/src/configuration/time_configuration.c
++++ b/src/configuration/time_configuration.c
+@@ -87,9 +87,7 @@ static bool update_ntp_config(amxd_object_t* time_object) {
+     module = time_get_time_ctrl(time_object);
+ 
+     time_create_variant(time_object, &data);
+-
+     when_false(mod_time_execute_function("update-ntp-config", module, &data), exit);
+-
+     if(!enable) {
+         if(ntp_service_running()) {
+             ntp_service_terminate();
+@@ -118,10 +116,13 @@ void time_config_source_state(amxd_object_t* time_object, bool onoff) {
+ 
+     when_null(time_object, exit);
+     amxc_var_init(&data);
++    time_create_variant(time_object, &data);
++    amxc_var_add_key(bool, &data, "onoff", onoff);
++
+     module = time_get_time_ctrl(time_object);
+-    amxc_var_set(bool, &data, onoff);
+-    mod_time_execute_function("update-sources-state", module, &data);
++    mod_time_execute_function("reload-sources", module, &data);
+     amxc_var_clean(&data);
++
+ exit:
+     return;
+ }
+diff --git a/src/server/netmodel.c b/src/server/netmodel.c
+index b6737ed..c6971eb 100644
+--- a/src/server/netmodel.c
++++ b/src/server/netmodel.c
+@@ -185,7 +185,6 @@ static void client_changed_state_cb(UNUSED const char* const sig_name,
+     info->state = amxc_var_dyncast(bool, data);
+ 
+     when_null(time_object, exit);
+-    time_config_update(time_object);
+     time_config_source_state(time_object, info->state);
+     update_time_and_clients_status(time_object);
+     SAH_TRACEZ_INFO(ME, "Client interface is %s",
+-- 
+GitLab
+
