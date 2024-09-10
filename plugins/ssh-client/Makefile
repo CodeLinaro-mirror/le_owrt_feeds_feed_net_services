@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=ssh-client
-PKG_VERSION:=v1.0.6
+PKG_VERSION:=v1.0.7
 SHORT_DESCRIPTION:=Process controller Data Model - dbclient
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v1.0.6
+PKG_SOURCE_VERSION:=v1.0.7
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/ssh-client.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
