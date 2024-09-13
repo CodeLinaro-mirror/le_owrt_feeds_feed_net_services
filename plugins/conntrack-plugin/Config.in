@@ -1,0 +1,20 @@
+config PACKAGE_conntrack-plugin
+    tristate
+    select SAH_AMX_CONNTRACK-PLUGIN
+
+if PACKAGE_conntrack-plugin
+
+menu "Select conntrack-plugin build options"
+    depends on PACKAGE_conntrack-plugin
+
+config SAH_AMX_CONNTRACK-PLUGIN
+    bool "Build conntrack plugin"
+    default y
+
+config SAH_AMX_CONNTRACK-PLUGIN_ORDER
+    int "Start up order"
+    default 50
+
+endmenu
+
+endif
