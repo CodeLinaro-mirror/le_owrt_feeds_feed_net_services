@@ -1,20 +1,23 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=time-manager
-PKG_VERSION:=v2.7.2
+
+PKG_VERSION:=dev_refresh
 SHORT_DESCRIPTION:=TR181 Time plugin
 
-PKG_SOURCE:=tr181-time-v2.7.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-time/-/archive/v2.7.2
-PKG_HASH:=0d9f2b10461700d51b78e45040208393bba5718f519bd5c792d001a69d698345
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-time-v2.7.2
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=dev_refresh
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-time.git
+PKG_MIRROR_HASH:=93ecf67d2cfedbeb352033c54bce7f7a02f207a3b7dfa4f89191a539f48a1725
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
 
 COMPONENT:=time-manager
 
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 define SAHInit/Install
 	install -d ${PKG_INSTALL_DIR}/etc/rc.d/
