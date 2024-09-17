@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=libamx-conntrack
-PKG_VERSION:=v0.1.4
+PKG_VERSION:=v0.1.5
 SHORT_DESCRIPTION:=Client library to interact with Conntrack datamodel
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.1.4
+PKG_SOURCE_VERSION:=v0.1.5
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/libamx-conntrack.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -29,7 +29,6 @@ define Package/$(PKG_NAME)
   DEPENDS += +libamxd
   DEPENDS += +libamxo
   DEPENDS += +libsahtrace
-  DEPENDS += +libimtp
   MENU:=1
 endef
 
