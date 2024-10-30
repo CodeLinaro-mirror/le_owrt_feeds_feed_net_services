@@ -7,7 +7,7 @@ SHORT_DESCRIPTION:=DynamicDNS plugin
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=dev_hop_7776
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns.git
-PKG_MIRROR_HASH:=skip
+PKG_MIRROR_HASH:=1624ad72760c78a0d189f9507c284346a664f1af94af4a28c711b470ddad658e
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 COMPONENT:=tr181-dynamicdns
