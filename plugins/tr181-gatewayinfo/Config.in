@@ -1,0 +1,20 @@
+config PACKAGE_tr181-gatewayinfo
+    tristate
+    select SAH_AMX_TR181_GATEWAYINFO
+
+if PACKAGE_tr181-gatewayinfo
+
+menu "Select tr181-gatewayinfo build options"
+    depends on PACKAGE_tr181-gatewayinfo
+
+config SAH_AMX_TR181_GATEWAYINFO
+    bool "Build a tr181 compatible gateway info plugin"
+    default y
+
+config SAH_AMX_TR181_GATEWAYINFO_PLATFORM
+    string "Platform that is used, can be 'prpl' or 'sop'"
+    default "prpl"
+
+endmenu
+
+endif
