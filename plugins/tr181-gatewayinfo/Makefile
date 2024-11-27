@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=tr181-gatewayinfo
-PKG_VERSION:=v0.4.0
+PKG_VERSION:=v0.4.1
 SHORT_DESCRIPTION:=tr181-gatewayinfo
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.4.0
+PKG_SOURCE_VERSION:=v0.4.1
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-gatewayinfo.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -30,6 +30,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=amx
   SUBMENU:=TR-181 Managers
   TITLE:=$(SHORT_DESCRIPTION)
+  URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-gatewayinfo
   DEPENDS += +libsahtrace
   DEPENDS += +libamxc
   DEPENDS += +libamxp
