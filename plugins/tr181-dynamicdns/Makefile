@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dynamicdns
-PKG_VERSION:=sah-next_v1.6.1
+PKG_VERSION:=sah-next_v1.7.0
 SHORT_DESCRIPTION:=DynamicDNS plugin
 
-PKG_SOURCE:=tr181-dynamicdns-sah-next_v1.6.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next_v1.6.1
-PKG_HASH:=05de9155b76444d9043376598be01e75559fd999a69306bab0e7556d501d6fb5
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next_v1.6.1
+PKG_SOURCE:=tr181-dynamicdns-sah-next_v1.7.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next_v1.7.0
+PKG_HASH:=d9b1e50fa3c0819f987de7bd5c0372cbe0022df354999762d9d440a90d407592
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next_v1.7.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
