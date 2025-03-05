@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# init script of cron sometimes doesn't have SHELL variable set
+
+sed -i '/procd_set_param respawn/a\\tprocd_set_param env SHELL=/bin/bash' /etc/init.d/cron
+
+exit 0

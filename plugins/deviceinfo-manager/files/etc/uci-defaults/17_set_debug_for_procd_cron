@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# enable debug log for procd when starting cron
+
+sed -i '/procd_set_param respawn/a\\tprocd_set_param stdout 1\n\tprocd_set_param stderr 1' /etc/init.d/cron
+
+exit 0
