@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=libbart
-PKG_VERSION:=v1.6.0
+PKG_VERSION:=v1.6.1
 SHORT_DESCRIPTION:=library for Backup and Restore Tool (BaRT)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v1.6.0
+PKG_SOURCE_VERSION:=v1.6.1
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/libbart.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
