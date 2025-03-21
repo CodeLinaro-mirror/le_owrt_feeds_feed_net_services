@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-temperature
-PKG_VERSION:=v0.4.11
+PKG_VERSION:=sah-next_v0.5.0
 SHORT_DESCRIPTION:=TR-181 compatible plugin for device temperature management
 
-PKG_SOURCE:=tr181-temperature-v0.4.11.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/v0.4.11
-PKG_HASH:=d1f7df288c6846eaee011ebe1baeadec131548317c1d585f42e71485fc003851
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-v0.4.11
+PKG_SOURCE:=tr181-temperature-sah-next_v0.5.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.5.0
+PKG_HASH:=d9ddaf544198b953ea74a8cd6d522aaccd6af8b10e9a411fe29a05da669b0c82
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.5.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
