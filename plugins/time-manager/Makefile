@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=time-manager
-PKG_VERSION:=sah-next_v2.7.17
+PKG_VERSION:=sah-next_v2.8.0
 SHORT_DESCRIPTION:=TR181 Time plugin
 
-PKG_SOURCE:=tr181-time-sah-next_v2.7.17.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-time/-/archive/sah-next_v2.7.17
-PKG_HASH:=cb53c6e1d7364d150f506887f9b75c58e620001265ee0e56b309fc905463922d
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-time-sah-next_v2.7.17
+PKG_SOURCE:=tr181-time-sah-next_v2.8.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-time/-/archive/sah-next_v2.8.0
+PKG_HASH:=2670c029a528548850a51808ab2028e74a1d1e535db7c00ed01cb5700bbb1045
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-time-sah-next_v2.8.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
