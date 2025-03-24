@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dnssd-advertisement
-PKG_VERSION:=v0.4.6
+PKG_VERSION:=sah-next_v0.4.7
 SHORT_DESCRIPTION:=Ambiorix module to configure the tr181-dnssd advertise module
 
-PKG_SOURCE:=mod-dnssd-advertisement-v0.4.6.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dnssd-advertisement/-/archive/v0.4.6
-PKG_HASH:=81786c5cf81245537f1b3021dca1070c0adcc9af564d114fc874beafdec357a4
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dnssd-advertisement-v0.4.6
+PKG_SOURCE:=mod-dnssd-advertisement-sah-next_v0.4.7.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dnssd-advertisement/-/archive/sah-next_v0.4.7
+PKG_HASH:=51455458428778e3d30fe05e21013ed108d097d978d677690f4e07a90c412f11
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dnssd-advertisement-sah-next_v0.4.7
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
