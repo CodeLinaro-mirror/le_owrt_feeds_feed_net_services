@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libfiletransfer
-PKG_VERSION:=v1.5.0
+PKG_VERSION:=sah-next_v1.5.1
 SHORT_DESCRIPTION:=Libfiletransfer is a library providing an upload/download API for HTTP(s)
 
-PKG_SOURCE:=libfiletransfer-v1.5.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/v1.5.0
-PKG_HASH:=ca297ed08e3341fc89d27a2daf8628d65b5702711fad4be2237c203c9ed90574
-PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-v1.5.0
+PKG_SOURCE:=libfiletransfer-sah-next_v1.5.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/sah-next_v1.5.1
+PKG_HASH:=9035f42ca5557c1ed57e957778dd8d826f5709cbabfb832b49d6504c0b29d662
+PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-sah-next_v1.5.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
