@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dnssd
-PKG_VERSION:=v0.5.12
+PKG_VERSION:=sah-next_v0.6.0
 SHORT_DESCRIPTION:=dns service discovery plugin
 
-PKG_SOURCE:=tr181-dnssd-v0.5.12.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/v0.5.12
-PKG_HASH:=73e9dc60a68faac46a995cf023d0bad4622c5a200a8d036037ea385784bb5e06
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-v0.5.12
+PKG_SOURCE:=tr181-dnssd-sah-next_v0.6.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next_v0.6.0
+PKG_HASH:=169822d04c5239fbb1af1ac6b21871548e5eb1ac5a4e155d4358e8b3e99df0ad
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next_v0.6.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -40,6 +40,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +libnetmodel
   DEPENDS += +umdns
   DEPENDS += +rpcd
+  DEPENDS += +mod-dmext
   MENU:=1
 endef
 
