@@ -6,7 +6,7 @@ SHORT_DESCRIPTION:=TR-181 HTTPAccess model plugin
 
 PKG_SOURCE:=tr181-httpaccess-sah-next_v0.18.1.tar.gz
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/archive/sah-next_v0.18.1
-PKG_HASH:=skip
+PKG_HASH:=b22154e103eb87466900a19731d13855b4c7a238442e749990141eb591b7e93d
 PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-httpaccess-sah-next_v0.18.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
