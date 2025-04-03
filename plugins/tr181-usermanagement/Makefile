@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-usermanagement
-PKG_VERSION:=sah-next_v0.24.0
+PKG_VERSION:=sah-next_v0.25.0
 SHORT_DESCRIPTION:=tr181 user management plugin
 
-PKG_SOURCE:=tr181-usermanagement-sah-next_v0.24.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next_v0.24.0
-PKG_HASH:=feb3a401f3e3fe8fc61d50043424dcec18d4d3b73cc74a0b5df54e03b9d00409
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next_v0.24.0
+PKG_SOURCE:=tr181-usermanagement-sah-next_v0.25.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next_v0.25.0
+PKG_HASH:=5d3e321dd6440001c234f745fde853a68931b4bd9d51ea36e1af3f649cbcda5a
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next_v0.25.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
