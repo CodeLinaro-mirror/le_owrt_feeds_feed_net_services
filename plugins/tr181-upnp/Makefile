@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnp
-PKG_VERSION:=sah-next_v0.14.0
+PKG_VERSION:=sah-next_v0.14.1
 SHORT_DESCRIPTION:=upnp manager
 
-PKG_SOURCE:=tr181-upnp-sah-next_v0.14.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/archive/sah-next_v0.14.0
-PKG_HASH:=ead7c8515de26b1188f41e1877609ece04396e02ffbd5570cc1345f43ce3323c
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnp-sah-next_v0.14.0
+PKG_SOURCE:=tr181-upnp-sah-next_v0.14.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/archive/sah-next_v0.14.1
+PKG_HASH:=9ae8804d32f01975f41e95f09f27bec9157f7e99cdd4fcdc3340be9883370d47
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnp-sah-next_v0.14.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp
   DEPENDS += +libamxb
