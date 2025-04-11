@@ -1,12 +1,14 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/mod-users-pcbcompat/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=mod-users-pcbcompat
-PKG_VERSION:=v0.1.1
-SHORT_DESCRIPTION:=Module for pcb compatibility
+PKG_VERSION:=v0.0.1
+SHORT_DESCRIPTION:=Make sure PCB components can use proper pcb user management
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.1.1
+PKG_SOURCE_VERSION:=v0.0.1
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-users-pcbcompat.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -20,8 +22,8 @@ PKG_RELEASE:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=amx
-  SUBMENU:=Modules
+  CATEGORY:=SoftAtHome
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-users-pcbcompat
   DEPENDS += +libamxc
@@ -36,7 +38,7 @@ define Package/$(PKG_NAME)
 endef
 
 define Package/$(PKG_NAME)/description
-	Module for pcb compatibility
+	Make sure PCB components can use proper pcb user management
 endef
 
 define Build/Compile
