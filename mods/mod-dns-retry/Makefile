@@ -1,12 +1,14 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/mod-dns-retry/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=mod-dns-retry
-PKG_VERSION:=v3.0.4
+PKG_VERSION:=v3.1.0
 SHORT_DESCRIPTION:=Ambiorix module that adds DNS failover
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v3.0.4
+PKG_SOURCE_VERSION:=v3.1.0
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-dns-retry.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -20,8 +22,8 @@ PKG_RELEASE:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=amx
-  SUBMENU:=Modules
+  CATEGORY:=SoftAtHome
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-dns-retry
   DEPENDS += +libamxb
@@ -31,6 +33,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +libamxp
   DEPENDS += +libamxm
   DEPENDS += +libsahtrace
+  DEPENDS += +libopenssl
   MENU:=1
 endef
 
