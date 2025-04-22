@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-temperature
-PKG_VERSION:=sah-next_v0.5.0
+PKG_VERSION:=sah-next_v0.5.1
 SHORT_DESCRIPTION:=TR-181 compatible plugin for device temperature management
 
-PKG_SOURCE:=tr181-temperature-sah-next_v0.5.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.5.0
-PKG_HASH:=d9ddaf544198b953ea74a8cd6d522aaccd6af8b10e9a411fe29a05da669b0c82
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.5.0
+PKG_SOURCE:=tr181-temperature-sah-next_v0.5.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.5.1
+PKG_HASH:=9d286b67c3bd8df6e2ec12331adc86d6d022d227fdf265704c0d5b364e69ff5b
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.5.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature
   DEPENDS += +libamxc
