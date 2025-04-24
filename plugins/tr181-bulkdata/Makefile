@@ -1,12 +1,14 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/tr181-bulkdata/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=tr181-bulkdata
-PKG_VERSION:=v0.7.2
+PKG_VERSION:=v0.8.0
 SHORT_DESCRIPTION:=Implementation of Device
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.7.2
+PKG_SOURCE_VERSION:=v0.8.0
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-bulkdata.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -27,8 +29,8 @@ endef
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=amx
-  SUBMENU:=TR-181 Managers
+  CATEGORY:=SoftAtHome
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-bulkdata
   DEPENDS += +libamxc
