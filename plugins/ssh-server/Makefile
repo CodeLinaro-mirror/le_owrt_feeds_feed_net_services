@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ssh-server
-PKG_VERSION:=sah-next_v0.8.2
+PKG_VERSION:=sah-next_v0.8.3
 SHORT_DESCRIPTION:=Process Controller Data Model - dropbear
 
-PKG_SOURCE:=ssh-server-sah-next_v0.8.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/archive/sah-next_v0.8.2
-PKG_HASH:=029e749e774576c89b0e71aa8acdc766183557d97686fc8bbe194e26db1a23af
-PKG_BUILD_DIR:=$(BUILD_DIR)/ssh-server-sah-next_v0.8.2
+PKG_SOURCE:=ssh-server-sah-next_v0.8.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/archive/sah-next_v0.8.3
+PKG_HASH:=25938407e7db310ab69d750d5e15d8efba8f74a8c30c4ab64dbc41f1e411fa44
+PKG_BUILD_DIR:=$(BUILD_DIR)/ssh-server-sah-next_v0.8.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server
   DEPENDS += +libamxb
