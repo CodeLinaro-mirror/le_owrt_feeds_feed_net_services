@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-temperature
-PKG_VERSION:=sah-next_v0.5.1
+PKG_VERSION:=sah-next_v0.5.2
 SHORT_DESCRIPTION:=TR-181 compatible plugin for device temperature management
 
-PKG_SOURCE:=tr181-temperature-sah-next_v0.5.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.5.1
-PKG_HASH:=9d286b67c3bd8df6e2ec12331adc86d6d022d227fdf265704c0d5b364e69ff5b
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.5.1
+PKG_SOURCE:=tr181-temperature-sah-next_v0.5.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.5.2
+PKG_HASH:=07113a0256db6f0e81ade43774de442a12c56cd4e76c710893eca76232e2232c
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.5.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -38,6 +38,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +libsahtrace
   DEPENDS += +amxrt
   DEPENDS += +mod-dmext
+  DEPENDS += +ucode-mod-fs
   MENU:=1
 endef
 
