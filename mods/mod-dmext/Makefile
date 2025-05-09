@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmext
-PKG_VERSION:=sah-next_v0.11.13
+PKG_VERSION:=sah-next_v0.11.14
 SHORT_DESCRIPTION:=Data model extension module
 
-PKG_SOURCE:=mod-dmext-sah-next_v0.11.13.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next_v0.11.13
-PKG_HASH:=943e2405ff3a2b164caa5b8496a57a420f0d26baf2accaf116dd4033a4188b18
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next_v0.11.13
+PKG_SOURCE:=mod-dmext-sah-next_v0.11.14.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next_v0.11.14
+PKG_HASH:=548e21aae052c6ab8dfc685a065b5d0fb1d80134d8da741e62e5dfabcdf99f54
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next_v0.11.14
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -20,7 +22,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Modules
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext
   DEPENDS += +libamxc
