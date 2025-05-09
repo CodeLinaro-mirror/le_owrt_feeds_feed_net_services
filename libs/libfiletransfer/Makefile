@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libfiletransfer
-PKG_VERSION:=sah-next_v1.5.1
+PKG_VERSION:=sah-next_v1.5.2
 SHORT_DESCRIPTION:=Libfiletransfer is a library providing an upload/download API for HTTP(s)
 
-PKG_SOURCE:=libfiletransfer-sah-next_v1.5.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/sah-next_v1.5.1
-PKG_HASH:=9035f42ca5557c1ed57e957778dd8d826f5709cbabfb832b49d6504c0b29d662
-PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-sah-next_v1.5.1
+PKG_SOURCE:=libfiletransfer-sah-next_v1.5.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/sah-next_v1.5.2
+PKG_HASH:=3451d81dfed6fe31fffef4f057033176dc06cdce955cb3ebd7379d9d5e2a4a5a
+PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-sah-next_v1.5.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Libraries
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer
   DEPENDS += +libamxc
