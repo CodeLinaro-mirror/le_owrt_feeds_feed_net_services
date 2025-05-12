@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pcm-manager
-PKG_VERSION:=sah-next_v0.20.0
+PKG_VERSION:=sah-next_v0.20.1
 SHORT_DESCRIPTION:=Upgrade Persistent Configuration Manager
 
-PKG_SOURCE:=tr181-pcm-sah-next_v0.20.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next_v0.20.0
-PKG_HASH:=d55118944a2b298dd8caa9e4496a9a12990e2f20ef01ebcd8f722af2de7dc912
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next_v0.20.0
+PKG_SOURCE:=tr181-pcm-sah-next_v0.20.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next_v0.20.1
+PKG_HASH:=989be669d1389b48484f00121bb8a749eab0eb97d79ed1133b88c266f9ac79e7
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next_v0.20.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm
   DEPENDS += +amxrt
