@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmproxy
-PKG_VERSION:=sah-next_v1.5.0
+PKG_VERSION:=sah-next_v1.5.1
 SHORT_DESCRIPTION:=Data model object proxy
 
-PKG_SOURCE:=mod-dmproxy-sah-next_v1.5.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next_v1.5.0
-PKG_HASH:=4a798596779dc0fad104b1bf5cef2fd902a51a116e032194d620e239765eb0c1
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next_v1.5.0
+PKG_SOURCE:=mod-dmproxy-sah-next_v1.5.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next_v1.5.1
+PKG_HASH:=dad4b6ec10bfb767cfdf0b220ce4fc4c635b41d7c85cda48c81b0ec119b3fddf
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next_v1.5.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Modules
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy
   DEPENDS += +libamxc
