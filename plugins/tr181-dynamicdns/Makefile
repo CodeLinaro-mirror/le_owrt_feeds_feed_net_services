@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dynamicdns
-PKG_VERSION:=sah-next_v1.8.1
+PKG_VERSION:=sah-next_v1.9.0
 SHORT_DESCRIPTION:=DynamicDNS plugin
 
-PKG_SOURCE:=tr181-dynamicdns-sah-next_v1.8.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next_v1.8.1
-PKG_HASH:=5fd423af0f6edfd92ae17b81f43df31aa54ad9b206d0db6e08b909f7f31e3ba2
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next_v1.8.1
+PKG_SOURCE:=tr181-dynamicdns-sah-next_v1.9.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next_v1.9.0
+PKG_HASH:=dfdbc6f25527e5cb8c97b1da22eb05f4d9c088590cefc48be71a709d1914bea3
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next_v1.9.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns
   DEPENDS += +libamxc
