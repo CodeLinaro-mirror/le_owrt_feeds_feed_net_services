@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-httpaccess
-PKG_VERSION:=sah-next_v0.18.1
+PKG_VERSION:=sah-next_v0.18.2
 SHORT_DESCRIPTION:=TR-181 HTTPAccess model plugin
 
-PKG_SOURCE:=tr181-httpaccess-sah-next_v0.18.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/archive/sah-next_v0.18.1
-PKG_HASH:=b22154e103eb87466900a19731d13855b4c7a238442e749990141eb591b7e93d
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-httpaccess-sah-next_v0.18.1
+PKG_SOURCE:=tr181-httpaccess-sah-next_v0.18.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/archive/sah-next_v0.18.2
+PKG_HASH:=7009bc3cf490b33c6f75e55190e4146cff21b7dc565bd8b31cf5cdb0a5b12425
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-httpaccess-sah-next_v0.18.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess
   DEPENDS += +libamxc
