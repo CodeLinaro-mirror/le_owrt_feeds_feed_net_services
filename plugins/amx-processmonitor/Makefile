@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=amx-processmonitor
-PKG_VERSION:=sah-next_v0.2.9
+PKG_VERSION:=sah-next_v0.3.0
 SHORT_DESCRIPTION:=monitor processes
 
-PKG_SOURCE:=amx-processmonitor-sah-next_v0.2.9.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next_v0.2.9
-PKG_HASH:=6a3545c0f192e7942203e3bab22645268f7095b6c52ed8041ebcaaf740a4fec1
-PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next_v0.2.9
+PKG_SOURCE:=amx-processmonitor-sah-next_v0.3.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next_v0.3.0
+PKG_HASH:=e32bb36ca6be4efbd48899d414df2354ecce508b208674f0def44754f51b2129
+PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next_v0.3.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -26,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=TR-181 Managers
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor
   DEPENDS += +libamxb
