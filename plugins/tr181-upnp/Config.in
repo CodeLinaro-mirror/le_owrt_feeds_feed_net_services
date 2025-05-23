@@ -11,9 +11,13 @@ config SAH_AMX_TR181_UPNP
     bool "Build a tr181 compatible upnp manager"
     default y
 
-config SAH_AMX_TR181_UPNP_ORDER
+config SAH_AMX_TR181_UPNP_START_ORDER
     int "Start up order for the tr181 upnp manager"
     default 80
+
+config SAH_AMX_TR181_UPNP_STOP_ORDER
+    int "Shutdown order for the tr181 upnp manager"
+    default 20
 
 config SAH_AMX_TR181_UPNP_RUN_AS_USER
     string "User will be used for the tr181-upnp plugin"
