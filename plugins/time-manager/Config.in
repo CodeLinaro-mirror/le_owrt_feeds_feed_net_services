@@ -11,9 +11,13 @@ config SAH_AMX_TR181_TIME
     bool "Build a tr181 compatible time plugin"
     default y
 
-config SAH_AMX_TR181_TIME_ORDER
+config SAH_AMX_TR181_TIME_START_ORDER
     int "tr181 time plugin start up order"
     default 30
+
+config SAH_AMX_TR181_TIME_STOP_ORDER
+    int "tr181 time plugin shutdown order"
+    default 70
 
 endmenu
 
