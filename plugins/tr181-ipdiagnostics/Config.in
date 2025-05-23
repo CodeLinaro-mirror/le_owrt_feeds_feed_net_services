@@ -11,6 +11,22 @@ config SAH_IP_DIAGNOSTICS
     bool "Build the TR-181 IP.Diagnostics"
     default y
 
+config SAH_IP_DIAGNOSTICS_START_ORDER
+    int "IP-DIAGNOSTICS plugin startup order"
+    default 25
+
+config SAH_IP_DIAGNOSTICS_STOP_ORDER
+    int "IP-DIAGNOSTICS plugin shutdown order"
+    default 75
+
+config SAH_IP_DIAGNOSTICS_BACKUPRESTORE_ORDER
+    int "IP-DIAGNOSTICS plugin backup restore order"
+    default 10
+
+config SAH_IP_DIAGNOSTICS_DEBUGINFO_ORDER
+    int "IP-DIAGNOSTICS plugin debug info order"
+    default 10
+
 config PRPL_IP_DIAGNOSTIC_UPLOAD_DOWNLOAD
     bool "Build the TR-181 Device.IP.Diagnostics.DownloadDiagnostics and Device.IP.Diagnostics.UploadDiagnostics"
     default y
