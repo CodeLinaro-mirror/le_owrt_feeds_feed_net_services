@@ -11,9 +11,13 @@ config SAH_AMX_MULTISETTINGS
     bool "Build a tr181 compatible multisettings plugin"
     default y
 
-config SAH_AMX_MULTISETTINGS_ORDER
+config SAH_AMX_MULTISETTINGS_START_ORDER
     int "Start up order for the tr181 multisettings plugin"
     default 19
+
+config SAH_AMX_MULTISETTINGS_STOP_ORDER
+    int "Shutdown order for the tr181 multisettings plugin"
+    default 81
 
 endmenu
 
