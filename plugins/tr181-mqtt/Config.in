@@ -11,9 +11,13 @@ config SAH_AMX_TR181_MQTT
     bool "TR-181 compatible MQTT client"
     default y
 
-config SAH_AMX_TR181_MQTT_ORDER
+config SAH_AMX_TR181_MQTT_START_ORDER
     int "TR-181 MQTT client plugin start up order"
     default 49
+
+config SAH_AMX_TR181_MQTT_STOP_ORDER
+    int "TR-181 MQTT client plugin shutdown order"
+    default 51
 
 config SAH_AMX_TR181_MQTT_RUN_AS_USER
     string "User will be used for the TR-181 MQTT plugin"
