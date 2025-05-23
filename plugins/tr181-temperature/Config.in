@@ -11,9 +11,13 @@ config SAH_AMX_TR181_TEMPERATURE
     bool "Build a tr181 compatible temperature manager"
     default y
 
-config SAH_AMX_TR181_TEMPERATURE_ORDER
-    int "Start up order"
+config SAH_AMX_TR181_TEMPERATURE_START_ORDER
+    int "TR181 temperature plugin start up order"
     default 15
+
+config SAH_AMX_TR181_TEMPERATURE_STOP_ORDER
+    int "TR181 temperature plugin shutdown order"
+    default 85
 
 config SAH_AMX_TR181_TEMPERATURE_RUN_AS_USER
     string "User will be used for the tr181-temperature plugin"
