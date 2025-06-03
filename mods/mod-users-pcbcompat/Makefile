@@ -4,11 +4,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=mod-users-pcbcompat
-PKG_VERSION:=v0.0.1
+PKG_VERSION:=v0.2.0
 SHORT_DESCRIPTION:=Make sure PCB components can use proper pcb user management
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.0.1
+PKG_SOURCE_VERSION:=v0.2.0
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-users-pcbcompat.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
