@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=multisettings
-PKG_VERSION:=sah-next_v0.12.1
+PKG_VERSION:=sah-next_v0.13.0
 SHORT_DESCRIPTION:=multisettings plugin
 
-PKG_SOURCE:=multisettings-sah-next_v0.12.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/multisettings/-/archive/sah-next_v0.12.1
-PKG_HASH:=571405374aff441155b1cc10d914452b35bfa600da19b8c7b7e227428e0e7bed
-PKG_BUILD_DIR:=$(BUILD_DIR)/multisettings-sah-next_v0.12.1
+PKG_SOURCE:=multisettings-sah-next_v0.13.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/multisettings/-/archive/sah-next_v0.13.0
+PKG_HASH:=30fed92111fa3e2bb908127bb9377692335637cf83032b9ce91d5b959b6379cc
+PKG_BUILD_DIR:=$(BUILD_DIR)/multisettings-sah-next_v0.13.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
