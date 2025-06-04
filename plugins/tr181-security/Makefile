@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-security
-PKG_VERSION:=sah-next_v0.4.7
+PKG_VERSION:=sah-next_v0.5.0
 SHORT_DESCRIPTION:=TR-181 compatible security plugin
 
-PKG_SOURCE:=tr181-security-sah-next_v0.4.7.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-security/-/archive/sah-next_v0.4.7
-PKG_HASH:=d0a626f542287cb333717caf1b31e545af302973cec9064fd2aa42bd9673fbd8
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-security-sah-next_v0.4.7
+PKG_SOURCE:=tr181-security-sah-next_v0.5.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-security/-/archive/sah-next_v0.5.0
+PKG_HASH:=3dc228269c21be46573bf7ca5777bc83100e2a4a60208d297dae51717e496f69
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-security-sah-next_v0.5.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
