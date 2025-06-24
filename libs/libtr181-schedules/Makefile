@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libtr181-schedules
-PKG_VERSION:=v0.1.3
+PKG_VERSION:=sah-next_v0.1.4
 SHORT_DESCRIPTION:=Library to easily subscribe on schedules events
 
-PKG_SOURCE:=libtr181-schedules-v0.1.3.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/v0.1.3
-PKG_HASH:=da8ad9854ac6235707ec91797a54bfb93d24b14d05231e9e308cb34e32eac64e
-PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-v0.1.3
+PKG_SOURCE:=libtr181-schedules-sah-next_v0.1.4.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/sah-next_v0.1.4
+PKG_HASH:=e83cad042751f1f21f5ac30a8f6702a9f4e71743a2a0fb67c55dd0199419dee8
+PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-sah-next_v0.1.4
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Libraries
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules
   DEPENDS += +libamxc
