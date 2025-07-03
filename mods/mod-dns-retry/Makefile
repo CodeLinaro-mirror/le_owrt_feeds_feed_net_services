@@ -4,11 +4,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=mod-dns-retry
-PKG_VERSION:=v3.1.0
+PKG_VERSION:=v3.1.1
 SHORT_DESCRIPTION:=Ambiorix module that adds DNS failover
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v3.1.0
+PKG_SOURCE_VERSION:=v3.1.1
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/mod-dns-retry.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
