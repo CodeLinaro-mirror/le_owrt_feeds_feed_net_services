@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-usermanagement
-PKG_VERSION:=sah-next_v0.27.0
+PKG_VERSION:=sah-next_v0.28.0
 SHORT_DESCRIPTION:=tr181 user management plugin
 
-PKG_SOURCE:=tr181-usermanagement-sah-next_v0.27.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next_v0.27.0
-PKG_HASH:=050b0e115fb1bff30d14e15124ac721ce17773bcd7fa52f9db758f03e53ca218
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next_v0.27.0
+PKG_SOURCE:=tr181-usermanagement-sah-next_v0.28.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next_v0.28.0
+PKG_HASH:=66fc228ce2cfa76285246c07a2ee71e363f545d82f0fdf0cefd64559d37c608b
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next_v0.28.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -38,6 +38,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +yajl
   DEPENDS += +libamxj
   DEPENDS += +libsahtrace
+  DEPENDS += +libopenssl
   MENU:=1
 endef
 
