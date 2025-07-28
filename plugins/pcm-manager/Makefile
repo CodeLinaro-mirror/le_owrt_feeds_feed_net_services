@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pcm-manager
-PKG_VERSION:=sah-next_v1.0.0
+PKG_VERSION:=sah-next_v1.0.1
 SHORT_DESCRIPTION:=Upgrade Persistent Configuration Manager
 
-PKG_SOURCE:=tr181-pcm-sah-next_v1.0.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next_v1.0.0
-PKG_HASH:=d68148ca55aea7897457ebfe8d55a8eef36f382a7fbad2c96df1f40dcee9fa45
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next_v1.0.0
+PKG_SOURCE:=tr181-pcm-sah-next_v1.0.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next_v1.0.1
+PKG_HASH:=3f50c89f48ad6c84a091c3d9a81a5c01b34b1e3024b6ddac912d27760ee5dbe1
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next_v1.0.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
