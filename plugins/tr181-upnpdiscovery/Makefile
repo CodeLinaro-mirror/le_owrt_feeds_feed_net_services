@@ -1,17 +1,15 @@
 # WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
-# WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/tr181-upnpdiscovery/-/blob/main/baf.yml instead
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
--include $(STAGING_DIR)/components.config
 
 PKG_NAME:=tr181-upnpdiscovery
-PKG_VERSION:=v0.8.1
+PKG_VERSION:=v0.9.0
 SHORT_DESCRIPTION:=upnp discovery manager
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v0.8.1
-PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-upnpdiscovery.git
-PKG_MIRROR_HASH:=skip
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=tr181-upnpdiscovery-v0.9.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/v0.9.0
+PKG_HASH:=959369c2990f64ef55d139a6ffa63518127c4214e7f183b54dbb6208b5ecc15b
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-v0.9.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -29,10 +27,10 @@ endef
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=SoftAtHome
+  CATEGORY:=prpl Foundation
   SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
-  URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-upnpdiscovery
+  URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery
   DEPENDS += +libamxb
   DEPENDS += +libamxc
   DEPENDS += +libamxd
