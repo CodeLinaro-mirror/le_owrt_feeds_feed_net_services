@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnpdiscovery
-PKG_VERSION:=v0.9.0
+PKG_VERSION:=v0.9.1
 SHORT_DESCRIPTION:=upnp discovery manager
 
-PKG_SOURCE:=tr181-upnpdiscovery-v0.9.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/v0.9.0
-PKG_HASH:=959369c2990f64ef55d139a6ffa63518127c4214e7f183b54dbb6208b5ecc15b
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-v0.9.0
+PKG_SOURCE:=tr181-upnpdiscovery-v0.9.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/v0.9.1
+PKG_HASH:=1eb22ed379be0cc01067bb1569eec62135281661fba31546c717e174c14e87d2
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-v0.9.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -43,6 +43,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +amxrt
   DEPENDS += +mod-fw-amx
   DEPENDS += +libipat
+  DEPENDS += +libtr181-hosts
   MENU:=1
 endef
 
