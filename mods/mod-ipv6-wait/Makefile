@@ -6,7 +6,7 @@ SHORT_DESCRIPTION:=Dual stack IPv6 wait module
 
 PKG_SOURCE:=mod_ipv6_wait-sah-next_v0.1.0.tar.gz
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod_ipv6_wait/-/archive/sah-next_v0.1.0
-PKG_HASH:=skip
+PKG_HASH:=761e833137a776320d88cbd1e3103bb98268e551298cbde94ae61954a2ad92dc
 PKG_BUILD_DIR:=$(BUILD_DIR)/mod_ipv6_wait-sah-next_v0.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
