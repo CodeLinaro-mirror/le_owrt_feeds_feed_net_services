@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libtr181-schedules
-PKG_VERSION:=sah-next_v0.1.4
+PKG_VERSION:=sah-next_v0.2.0
 SHORT_DESCRIPTION:=Library to easily subscribe on schedules events
 
-PKG_SOURCE:=libtr181-schedules-sah-next_v0.1.4.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/sah-next_v0.1.4
-PKG_HASH:=e83cad042751f1f21f5ac30a8f6702a9f4e71743a2a0fb67c55dd0199419dee8
-PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-sah-next_v0.1.4
+PKG_SOURCE:=libtr181-schedules-sah-next_v0.2.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/sah-next_v0.2.0
+PKG_HASH:=5eaf70cdc2e0d286d21f35e22bff64bc0d2da238f44cddacd151ee7e67aab6c7
+PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-sah-next_v0.2.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
