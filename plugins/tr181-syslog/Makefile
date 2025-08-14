@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-syslog
-PKG_VERSION:=sah-next_v1.8.1
+PKG_VERSION:=sah-next_v1.8.2
 SHORT_DESCRIPTION:=TR-181 compatible syslog
 
-PKG_SOURCE:=tr181-syslog-sah-next_v1.8.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next_v1.8.1
-PKG_HASH:=2e9659d320439187a8a5a7e7e4410e591c9e923354e015fe17e440444080ecb0
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next_v1.8.1
+PKG_SOURCE:=tr181-syslog-sah-next_v1.8.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next_v1.8.2
+PKG_HASH:=c625e187d907e27c2fc05c73c12fe5bd2a636cf239d1a219da9651f2b5d181ba
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next_v1.8.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
