@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod_ipv6_wait/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-ipv6-wait
-PKG_VERSION:=sah-next_v0.1.0
+PKG_VERSION:=sah-next_v0.1.1
 SHORT_DESCRIPTION:=Dual stack IPv6 wait module
 
-PKG_SOURCE:=mod_ipv6_wait-sah-next_v0.1.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod_ipv6_wait/-/archive/sah-next_v0.1.0
-PKG_HASH:=761e833137a776320d88cbd1e3103bb98268e551298cbde94ae61954a2ad92dc
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod_ipv6_wait-sah-next_v0.1.0
+PKG_SOURCE:=mod_ipv6_wait-sah-next_v0.1.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod_ipv6_wait/-/archive/sah-next_v0.1.1
+PKG_HASH:=17d975dd237a8623149237edc47417f627c96b55d8fe2a8186d4e5595950d683
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod_ipv6_wait-sah-next_v0.1.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Modules
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod_ipv6_wait
   DEPENDS += +amxrt
