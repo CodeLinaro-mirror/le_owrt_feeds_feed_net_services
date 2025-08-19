@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnpdiscovery
-PKG_VERSION:=sah-next_v0.9.3
+PKG_VERSION:=sah-next_v0.10.0
 SHORT_DESCRIPTION:=upnp discovery manager
 
-PKG_SOURCE:=tr181-upnpdiscovery-sah-next_v0.9.3.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next_v0.9.3
-PKG_HASH:=cb31de5aa2fbce2678ea1f6548037099988b4ca1af1094fc5eec48c0f0449409
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next_v0.9.3
+PKG_SOURCE:=tr181-upnpdiscovery-sah-next_v0.10.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next_v0.10.0
+PKG_HASH:=ae24fd307421922558cbd6aae5b945278ce0f9d46592d9371c1adb7745371e59
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next_v0.10.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -44,6 +44,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +mod-fw-amx
   DEPENDS += +libipat
   DEPENDS += +libtr181-hosts
+  DEPENDS += +curl
   MENU:=1
 endef
 
