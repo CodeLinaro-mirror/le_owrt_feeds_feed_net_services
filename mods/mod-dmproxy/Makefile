@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmproxy
-PKG_VERSION:=sah-next_v1.6.1
+PKG_VERSION:=sah-next_v1.6.2
 SHORT_DESCRIPTION:=Data model object proxy
 
-PKG_SOURCE:=mod-dmproxy-sah-next_v1.6.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next_v1.6.1
-PKG_HASH:=a066bcfc3225d386150e86f9feec7eed2d6384fd0bd22e6d18db59b10af32d0d
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next_v1.6.1
+PKG_SOURCE:=mod-dmproxy-sah-next_v1.6.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next_v1.6.2
+PKG_HASH:=e1aa833ff450d2d59856e2b3f84914c574f47f1b209a45b0a6f315418d2a6093
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next_v1.6.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
