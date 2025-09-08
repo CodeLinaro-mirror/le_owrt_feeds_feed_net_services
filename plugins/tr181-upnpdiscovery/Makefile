@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnpdiscovery
-PKG_VERSION:=sah-next_v0.10.0
+PKG_VERSION:=sah-next_v0.10.1
 SHORT_DESCRIPTION:=upnp discovery manager
 
-PKG_SOURCE:=tr181-upnpdiscovery-sah-next_v0.10.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next_v0.10.0
-PKG_HASH:=ae24fd307421922558cbd6aae5b945278ce0f9d46592d9371c1adb7745371e59
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next_v0.10.0
+PKG_SOURCE:=tr181-upnpdiscovery-sah-next_v0.10.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next_v0.10.1
+PKG_HASH:=27dc4dd14f4094e1768d706f09bf5531c73a9fe3c1d33e53358530b514566a72
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next_v0.10.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
