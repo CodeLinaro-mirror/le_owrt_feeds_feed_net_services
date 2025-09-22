@@ -8,7 +8,7 @@ SHORT_DESCRIPTION:=TR-181 compatible plugin for device temperature management
 
 PKG_SOURCE:=tr181-temperature-sah-next_v0.6.0.tar.gz
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-temperature/-/archive/sah-next_v0.6.0
-PKG_HASH:=skip
+PKG_HASH:=07c2e83d3237e0b8863714e5c9676e442f35141742f84faf54fe44f48eac8ce4
 PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-temperature-sah-next_v0.6.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
