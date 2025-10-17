@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deviceinfo-manager
-PKG_VERSION:=sah-next_v3.2.3
+PKG_VERSION:=sah-next_v3.3.0
 SHORT_DESCRIPTION:=TR-181 compatible DeviceInfo plugin
 
-PKG_SOURCE:=tr181-deviceinfo-sah-next_v3.2.3.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next_v3.2.3
-PKG_HASH:=c2407b7e0f4c1333adac56c45a3a217be0fb15f858f1a4335fd7bbec89068cbc
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next_v3.2.3
+PKG_SOURCE:=tr181-deviceinfo-sah-next_v3.3.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next_v3.3.0
+PKG_HASH:=18296ea95c57013a376a37ee347e52c7294746a767fb4bac60825f962ca437ba
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next_v3.3.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
