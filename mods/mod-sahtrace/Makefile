@@ -1,13 +1,15 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-sahtrace/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-sahtrace
-PKG_VERSION:=sah-next_v1.2.4
+PKG_VERSION:=sah-next_v1.3.0
 SHORT_DESCRIPTION:=Module for sahtrace logging
 
-PKG_SOURCE:=mod-sahtrace-sah-next_v1.2.4.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-sahtrace/-/archive/sah-next_v1.2.4
-PKG_HASH:=960dbe612e5d3dc5e5c201185e706d98c5638badb17b64f3edd46026993cfda5
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-sahtrace-sah-next_v1.2.4
+PKG_SOURCE:=mod-sahtrace-sah-next_v1.3.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-sahtrace/-/archive/sah-next_v1.3.0
+PKG_HASH:=0351e9bc72278158dd614accd621ab8284363e5acaf16cdb392c3c213f6e356d
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-sahtrace-sah-next_v1.3.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Modules
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-sahtrace
   DEPENDS += +libamxc
