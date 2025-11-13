@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-device
-PKG_VERSION:=sah-next_v1.0.2
+PKG_VERSION:=sah-next_v1.0.3
 SHORT_DESCRIPTION:=TR-181 compatible Device plugin
 
-PKG_SOURCE:=tr181-device-sah-next_v1.0.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-device/-/archive/sah-next_v1.0.2
-PKG_HASH:=df4dd4fe1c57620544abf603d43b010d96659b1227d20b063a0ce538d2b2fe75
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-device-sah-next_v1.0.2
+PKG_SOURCE:=tr181-device-sah-next_v1.0.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-device/-/archive/sah-next_v1.0.3
+PKG_HASH:=7f4b511dde550c0be0214c9a4b86d14b780c6e627015020a038344959cef4704
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-device-sah-next_v1.0.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
