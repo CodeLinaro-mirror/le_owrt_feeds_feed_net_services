@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=amx-processmonitor
-PKG_VERSION:=sah-next_v0.3.0
+PKG_VERSION:=sah-next_v0.3.1
 SHORT_DESCRIPTION:=monitor processes
 
-PKG_SOURCE:=amx-processmonitor-sah-next_v0.3.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next_v0.3.0
-PKG_HASH:=e32bb36ca6be4efbd48899d414df2354ecce508b208674f0def44754f51b2129
-PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next_v0.3.0
+PKG_SOURCE:=amx-processmonitor-sah-next_v0.3.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next_v0.3.1
+PKG_HASH:=cba9bfc0702a81b6f47a6dad2ff8a7a6b870779bc7c492c152cbc47271d31239
+PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next_v0.3.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
