@@ -1,0 +1,20 @@
+config PACKAGE_mod-deviceinfo-swversion-hash
+    tristate
+    select SAH_AMX_ADD_DBREADY_SCRIPT
+
+if PACKAGE_mod-deviceinfo-swversion-hash
+
+menu "Select mod-deviceinfo-swversion-hash build options"
+    depends on PACKAGE_mod-deviceinfo-swversion-hash
+
+config SAH_AMX_ADD_DBREADY_SCRIPT
+    bool "Build deviceinfo-manager's module that handles the software version hash"
+    default y
+
+config SAH_AMX_DBREADY_SCRIPT_START_ORDER
+    int "Start-up order for the script that saves the hash code into the file"
+    default 99
+
+endmenu
+
+endif
