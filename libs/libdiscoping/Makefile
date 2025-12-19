@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libdiscoping
-PKG_VERSION:=sah-next_v0.11.2
+PKG_VERSION:=sah-next-4.1_v0.1.0
 SHORT_DESCRIPTION:=Library discovering when IPs appear and disappear
 
-PKG_SOURCE:=libdiscoping-sah-next_v0.11.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libdiscoping/-/archive/sah-next_v0.11.2
-PKG_HASH:=abc1219e1065f13761dc7f7637326335b86eb48ccd062b0f0572cbace3dcc818
-PKG_BUILD_DIR:=$(BUILD_DIR)/libdiscoping-sah-next_v0.11.2
+PKG_SOURCE:=libdiscoping-sah-next-4.1_v0.1.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libdiscoping/-/archive/sah-next-4.1_v0.1.0
+PKG_HASH:=42d687286ddbd6f3f1a0472ee98180266769bcd3b5d831ce230cca36fafac39e
+PKG_BUILD_DIR:=$(BUILD_DIR)/libdiscoping-sah-next-4.1_v0.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
