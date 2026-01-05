@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmext
-PKG_VERSION:=sah-next_v0.11.16
+PKG_VERSION:=sah-next-4.1_v0.1.0
 SHORT_DESCRIPTION:=Data model extension module
 
-PKG_SOURCE:=mod-dmext-sah-next_v0.11.16.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next_v0.11.16
-PKG_HASH:=627494f1676b7114d3c1672b28356b1ba800850f4ccf456c308923477ab961ae
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next_v0.11.16
+PKG_SOURCE:=mod-dmext-sah-next-4.1_v0.1.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next-4.1_v0.1.0
+PKG_HASH:=8fa226d2610f351ae3991ff27c937fb41c5b6a385af859eddfe1219bfa2080d5
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next-4.1_v0.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -22,7 +22,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Ambiorix
+  SUBMENU:=Modules
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext
   DEPENDS += +libamxc
