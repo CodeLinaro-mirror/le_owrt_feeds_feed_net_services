@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-httpaccess-lighttpd
-PKG_VERSION:=sah-next_v0.7.0
+PKG_VERSION:=sah-next-4.1_v0.1.0
 SHORT_DESCRIPTION:=Module to manage HTTP accesses for lighttpd server
 
-PKG_SOURCE:=mod-httpaccess-lighttpd-sah-next_v0.7.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-httpaccess-lighttpd/-/archive/sah-next_v0.7.0
-PKG_HASH:=d80a9144351f0f8420c1580f2fb8ab63ef741959f6021efd34a2b06e8eb36ac7
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-httpaccess-lighttpd-sah-next_v0.7.0
+PKG_SOURCE:=mod-httpaccess-lighttpd-sah-next-4.1_v0.1.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-httpaccess-lighttpd/-/archive/sah-next-4.1_v0.1.0
+PKG_HASH:=fff452854f7588a4f3888089454d2810fbf91cccf20da09ca4868f0bab82970a
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-httpaccess-lighttpd-sah-next-4.1_v0.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -21,10 +21,12 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Ambiorix
+  SUBMENU:=Modules
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-httpaccess-lighttpd
+  DEPENDS += +libamxb
   DEPENDS += +libamxc
+  DEPENDS += +libamxd
   DEPENDS += +libamxp
   DEPENDS += +libamxm
   DEPENDS += +libsahtrace
@@ -48,11 +50,11 @@ define Build/Compile
 endef
 
 define Build/Install
-	$(call Build/Install/Default, install INSTALL=install D=$(PKG_INSTALL_DIR) DEST=$(PKG_INSTALL_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_GATEWAY=$(CONFIG_GATEWAY) CONFIG_ACCESSPOINT=$(CONFIG_ACCESSPOINT) CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN=$(CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN))
+	$(call Build/Install/Default, install INSTALL=install D=$(PKG_INSTALL_DIR) DEST=$(PKG_INSTALL_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN=$(CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN))
 endef
 
 define Build/InstallDev
-	$(call Build/Install/Default, install INSTALL=install D=$(STAGING_DIR) DEST=$(STAGING_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_GATEWAY=$(CONFIG_GATEWAY) CONFIG_ACCESSPOINT=$(CONFIG_ACCESSPOINT) CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN=$(CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN))
+	$(call Build/Install/Default, install INSTALL=install D=$(STAGING_DIR) DEST=$(STAGING_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN=$(CONFIG_SAH_MOD_HTTPACCESS_LIGHTTPD_FORCEFUL_TIMEOUT_SHUTDOWN))
 endef
 
 define Package/$(PKG_NAME)/install
