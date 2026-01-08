@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmext
-PKG_VERSION:=sah-next-4.1_v0.1.0
+PKG_VERSION:=sah-next-4.1_v0.1.1
 SHORT_DESCRIPTION:=Data model extension module
 
-PKG_SOURCE:=mod-dmext-sah-next-4.1_v0.1.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next-4.1_v0.1.0
-PKG_HASH:=8fa226d2610f351ae3991ff27c937fb41c5b6a385af859eddfe1219bfa2080d5
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next-4.1_v0.1.0
+PKG_SOURCE:=mod-dmext-sah-next-4.1_v0.1.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next-4.1_v0.1.1
+PKG_HASH:=160305e6812cbeebf1454df874ff0af372c19ef2edaaa10ba711f1591c484941
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next-4.1_v0.1.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
