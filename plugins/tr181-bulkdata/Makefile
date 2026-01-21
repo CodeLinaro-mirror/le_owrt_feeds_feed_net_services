@@ -1,15 +1,17 @@
 # WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
-# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-bulkdata/-/blob/main/baf.yml instead
+# WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/tr181-bulkdata/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
+-include $(STAGING_DIR)/components.config
 
 PKG_NAME:=tr181-bulkdata
-PKG_VERSION:=sah-next-4.1_v0.1.0
+PKG_VERSION:=sah-next-4.1_v0.1.1
 SHORT_DESCRIPTION:=Implementation of Device
 
-PKG_SOURCE:=tr181-bulkdata-sah-next-4.1_v0.1.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-bulkdata/-/archive/sah-next-4.1_v0.1.0
-PKG_HASH:=skip
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-bulkdata-sah-next-4.1_v0.1.0
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=sah-next-4.1_v0.1.1
+PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-bulkdata.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -27,10 +29,10 @@ endef
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=prpl Foundation
+  CATEGORY:=SoftAtHome
   SUBMENU:=TR-181 Managers
   TITLE:=$(SHORT_DESCRIPTION)
-  URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-bulkdata
+  URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-bulkdata
   DEPENDS += +libamxc
   DEPENDS += +libamxj
   DEPENDS += +libamxp
