@@ -11,13 +11,9 @@ config SAH_AMX_TR181_SECURITY
     bool "Build a tr181 compatible security plugin"
     default y
 
-config SAH_AMX_TR181_SECURITY_START_ORDER
+config SAH_AMX_TR181_SECURITY_ORDER
     int "Start up order for the tr181 SECURITY plugin"
     default 61
-
-config SAH_AMX_TR181_SECURITY_STOP_ORDER
-    int "Shutdown order for the tr181 SECURITY plugin"
-    default 39
 
 endmenu
 
