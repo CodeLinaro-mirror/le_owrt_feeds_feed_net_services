@@ -39,7 +39,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +libamxm
   DEPENDS += +libnetmodel
   DEPENDS += +libsahtrace
-  DEPENDS += +libupnp
+  DEPENDS += +libupnp-prpl
   DEPENDS += +amxrt
   DEPENDS += +mod-fw-amx
   DEPENDS += +libipat
