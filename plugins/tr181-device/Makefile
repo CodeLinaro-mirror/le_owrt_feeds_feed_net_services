@@ -1,15 +1,15 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.39.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-device/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-device
-PKG_VERSION:=sah-next-4.1_v0.2.0
+PKG_VERSION:=sah-next-4.1_v0.2.1
 SHORT_DESCRIPTION:=TR-181 compatible Device plugin
 
-PKG_SOURCE:=tr181-device-sah-next-4.1_v0.2.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-device/-/archive/sah-next-4.1_v0.2.0
-PKG_HASH:=8af450ad5a000fe7232f19b2406b2d67f36c3f47e214db1da6b76046b6513bc0
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-device-sah-next-4.1_v0.2.0
+PKG_SOURCE:=tr181-device-sah-next-4.1_v0.2.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-device/-/archive/sah-next-4.1_v0.2.1
+PKG_HASH:=11f8c0d6a39522d83c987b7db87bf8e37cf96a8bf1a02cbddd08180e2b30add8
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-device-sah-next-4.1_v0.2.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
