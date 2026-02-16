@@ -1,14 +1,14 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.39.3)
 # WARNING: You should contribute changes to https://gitlab.softathome.com/ext_prpl/components/amx-apparmor-profiles/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=amx-apparmor-profiles
-PKG_VERSION:=v4.16.3
+PKG_VERSION:=v4.17.0
 SHORT_DESCRIPTION:=AppArmor profiles for amx plugins
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v4.16.3
+PKG_SOURCE_VERSION:=v4.17.0
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/amx-apparmor-profiles.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
