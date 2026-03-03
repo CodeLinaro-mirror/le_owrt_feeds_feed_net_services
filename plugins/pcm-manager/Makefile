@@ -1,15 +1,15 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.39.4)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pcm-manager
-PKG_VERSION:=sah-next-4.1_v0.3.0
+PKG_VERSION:=sah-next-4.1_v0.3.1
 SHORT_DESCRIPTION:=Upgrade Persistent Configuration Manager
 
-PKG_SOURCE:=tr181-pcm-sah-next-4.1_v0.3.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next-4.1_v0.3.0
-PKG_HASH:=4c90b9bd6de2c0732c6d1bff233944c2703eb0835a1ed2a5b7a444da39261e71
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next-4.1_v0.3.0
+PKG_SOURCE:=tr181-pcm-sah-next-4.1_v0.3.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-pcm/-/archive/sah-next-4.1_v0.3.1
+PKG_HASH:=575b296042c3a4fb47acedc12196c5f74b92ec6b600fc18d596ae137e6783c9f
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-pcm-sah-next-4.1_v0.3.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
