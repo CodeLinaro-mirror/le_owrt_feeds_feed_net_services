@@ -1,15 +1,15 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.1)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-usermanagement
-PKG_VERSION:=sah-next-4.1_v0.31.1
+PKG_VERSION:=sah-next-4.1_v0.31.2
 SHORT_DESCRIPTION:=tr181 user management plugin
 
-PKG_SOURCE:=tr181-usermanagement-sah-next-4.1_v0.31.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next-4.1_v0.31.1
-PKG_HASH:=6ad672090359cf72f03baf7ec408786662d89013ebeb96e1283aad94faafca50
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next-4.1_v0.31.1
+PKG_SOURCE:=tr181-usermanagement-sah-next-4.1_v0.31.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next-4.1_v0.31.2
+PKG_HASH:=81442d6ba0b59b18a9b97ea70d3fca6b2d1229e4677082c23907f1d05dcff358
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next-4.1_v0.31.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
