@@ -1,15 +1,16 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-schedules/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
--include $(STAGING_DIR)/components.config
 
 PKG_NAME:=tr181-schedules
-PKG_VERSION:=v1.0.3
+RAW_VERSION:=sah-next_v2.0.0
+PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 Schedules plugin
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v1.0.3
-PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-schedules.git
-PKG_MIRROR_HASH:=skip
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=tr181-schedules-sah-next_v2.0.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-schedules/-/archive/sah-next_v2.0.0
+PKG_HASH:=f2799aefd1b8e864648b3410b3fd3985978337625023655346c2222ff8f68d9c
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-schedules-sah-next_v2.0.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -19,27 +20,18 @@ COMPONENT:=tr181-schedules
 PKG_RELEASE:=1
 
 define SAHInit/Install
-	install -d ${PKG_INSTALL_DIR}/etc/rc.d/
-	ln -sfr ${PKG_INSTALL_DIR}/etc/init.d/$(COMPONENT) ${PKG_INSTALL_DIR}/etc/rc.d/S20$(COMPONENT)
-	ln -sfr ${PKG_INSTALL_DIR}/etc/init.d/$(COMPONENT) ${PKG_INSTALL_DIR}/etc/rc.d/K78$(COMPONENT)
-endef
-
-define SAHBackupRestore/Install
-	install -d ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/backup
-	install -d ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/restore
-	install -d ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/import
-	ln -sfr ${PKG_INSTALL_DIR}/etc/init.d/$(COMPONENT) ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/backup/B20$(COMPONENT)
-	ln -sfr ${PKG_INSTALL_DIR}/etc/init.d/$(COMPONENT) ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/restore/R20$(COMPONENT)
-	ln -sfr ${PKG_INSTALL_DIR}/etc/init.d/$(COMPONENT) ${PKG_INSTALL_DIR}/usr/lib/hgwcfg/import/R20$(COMPONENT)
+	install -d $(1)/etc/rc.d/
+	ln -sfr $(1)/etc/init.d/$(COMPONENT) $(1)/etc/rc.d/S20$(COMPONENT)
+	ln -sfr $(1)/etc/init.d/$(COMPONENT) $(1)/etc/rc.d/K78$(COMPONENT)
 endef
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-  CATEGORY:=amx
-  SUBMENU:=TR-181 Managers
+  CATEGORY:=prpl Foundation
+  SUBMENU:=Ambiorix
   TITLE:=$(SHORT_DESCRIPTION)
-  URL:=https://$(SAH_GIT)/$(SAH_GIT_GROUP)/tr181-schedules
+  URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-schedules
   DEPENDS += +libamxc
   DEPENDS += +libamxp
   DEPENDS += +libamxd
@@ -56,18 +48,18 @@ define Package/$(PKG_NAME)/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/Default, STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PKG_CONFIG_PATH=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
+	$(call Build/Compile/Default, STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PKG_CONFIG_PATH=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(RAW_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include PKG_CONFIG=$(PKG_CONFIG) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
 endef
 
 define Build/Install
-	$(call Build/Install/Default, install INSTALL=install D=$(PKG_INSTALL_DIR) DEST=$(PKG_INSTALL_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_GATEWAY=$(CONFIG_GATEWAY) CONFIG_ACCESSPOINT=$(CONFIG_ACCESSPOINT) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
+	$(call Build/Install/Default, install INSTALL=install D=$(PKG_INSTALL_DIR) DEST=$(PKG_INSTALL_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(RAW_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(RAW_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include PKG_CONFIG=$(PKG_CONFIG) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
 
-	$(call SAHInit/Install)
-	$(call SAHBackupRestore/Install)
+	$(call SAHInit/Install,$(PKG_INSTALL_DIR))
 endef
 
 define Build/InstallDev
-	$(call Build/Install/Default, install INSTALL=install D=$(STAGING_DIR) DEST=$(STAGING_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(PKG_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(PKG_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include CONFIG_GATEWAY=$(CONFIG_GATEWAY) CONFIG_ACCESSPOINT=$(CONFIG_ACCESSPOINT) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
+	$(call Build/Install/Default, install INSTALL=install D=$(STAGING_DIR) DEST=$(STAGING_DIR) STAGINGDIR=$(STAGING_DIR) CONFIGDIR=$(STAGING_DIR) PV=$(RAW_VERSION) PKG_CONFIG_LIBDIR=$(STAGING_DIR)/usr/lib/pkgconfig LIBDIR=/usr/lib INSTALL_LIB_DIR=/lib INSTALL_BIN_DIR=/bin RAW_VERSION=$(RAW_VERSION) HARDCO_HAL_DIR=$(STAGING_DIR)/usr/include PKG_CONFIG=$(PKG_CONFIG) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_USER) CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP=$(CONFIG_SAH_AMX_TR181_SCHEDULES_RUN_AS_GROUP))
+	$(call SAHInit/Install,$(STAGING_DIR))
 endef
 
 define Package/$(PKG_NAME)/install
