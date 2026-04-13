@@ -1,3 +1,5 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-httpaccess-lighttpd/-/blob/main/baf.yml instead
 config PACKAGE_mod-httpaccess-lighttpd
     tristate
     select SAH_MOD_HTTPACCESS_LIGHTTPD
