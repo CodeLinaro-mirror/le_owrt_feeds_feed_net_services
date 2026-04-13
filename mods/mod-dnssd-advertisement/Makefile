@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-dnssd-advertisement/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dnssd-advertisement
-RAW_VERSION:=sah-next-4.1_v0.1.1
+RAW_VERSION:=sah-next-4.2_v0.1.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Ambiorix module to configure the tr181-dnssd advertise module
 
-PKG_SOURCE:=mod-dnssd-advertisement-sah-next-4.1_v0.1.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dnssd-advertisement/-/archive/sah-next-4.1_v0.1.1
-PKG_HASH:=d82615a149083afc43310fbdf3f3ae18bfb087c88df04c0e829a3641e249c5e7
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dnssd-advertisement-sah-next-4.1_v0.1.1
+PKG_SOURCE:=mod-dnssd-advertisement-sah-next-4.2_v0.1.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dnssd-advertisement/-/archive/sah-next-4.2_v0.1.1
+PKG_HASH:=6b841dbb7afba4437e5b41b7e8b3bacfd65a51ab5ae11f09e24055f08252da0f
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dnssd-advertisement-sah-next-4.2_v0.1.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -54,7 +54,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
