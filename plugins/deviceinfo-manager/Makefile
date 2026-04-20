@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deviceinfo-manager
-RAW_VERSION:=sah-next-4.1_v4.3.3
+RAW_VERSION:=sah-next-4.1_v4.3.4
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 compatible DeviceInfo plugin
 
-PKG_SOURCE:=tr181-deviceinfo-sah-next-4.1_v4.3.3.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next-4.1_v4.3.3
-PKG_HASH:=3fcd179d4807a307ca474cf7460957f838058803afb7af1949830b0751f36469
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next-4.1_v4.3.3
+PKG_SOURCE:=tr181-deviceinfo-sah-next-4.1_v4.3.4.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next-4.1_v4.3.4
+PKG_HASH:=5d0f57e557a3b4af0d72db0864490fa1fdc942f82cc7e454a68462c3099a48bd
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next-4.1_v4.3.4
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -75,7 +75,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
