@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmproxy
-RAW_VERSION:=sah-next-4.1_v0.4.0
+RAW_VERSION:=sah-next-4.2_v0.4.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Data model object proxy
 
-PKG_SOURCE:=mod-dmproxy-sah-next-4.1_v0.4.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next-4.1_v0.4.0
-PKG_HASH:=a50c3323e7d49a7f087497ef2af3782220208e48e53d03257773f72dfa5033c8
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next-4.1_v0.4.0
+PKG_SOURCE:=mod-dmproxy-sah-next-4.2_v0.4.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmproxy/-/archive/sah-next-4.2_v0.4.1
+PKG_HASH:=48304f61126ac23a0963550f466103979d21584e490a175b6e5015551a108089
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmproxy-sah-next-4.2_v0.4.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
