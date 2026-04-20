@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-syslog
-RAW_VERSION:=sah-next-4.1_v1.0.4
+RAW_VERSION:=sah-next-4.1_v1.0.5
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 compatible syslog
 
-PKG_SOURCE:=tr181-syslog-sah-next-4.1_v1.0.4.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next-4.1_v1.0.4
-PKG_HASH:=f37d464f0880a79f3374849f08d3ceaf67362d1a64810a89051715584d92ea7a
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next-4.1_v1.0.4
+PKG_SOURCE:=tr181-syslog-sah-next-4.1_v1.0.5.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next-4.1_v1.0.5
+PKG_HASH:=0f570e643935d650c13550591072cc9d4a3638eabd59fa38c38ecbe356380051
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next-4.1_v1.0.5
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
