@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dnssd
-RAW_VERSION:=sah-next_v1.4.1
+RAW_VERSION:=sah-next-4.1_v1.4.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=dns service discovery plugin
 
-PKG_SOURCE:=tr181-dnssd-sah-next_v1.4.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next_v1.4.1
-PKG_HASH:=d1a78f8b0b496fc44e61c1ae4f532b5e1181b3433e3b16648c8cd9fdc7da5d18
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next_v1.4.1
+PKG_SOURCE:=tr181-dnssd-sah-next-4.1_v1.4.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next-4.1_v1.4.1
+PKG_HASH:=f61dcc4d05447ba7bc4d34150a28e8966ca66e029b585d55017c20241e08cc9a
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next-4.1_v1.4.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -29,7 +29,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
-  SUBMENU:=Ambiorix
+  SUBMENU:=TR-181 Managers
   TITLE:=$(SHORT_DESCRIPTION)
   URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd
   DEPENDS += +libamxb
@@ -44,6 +44,8 @@ define Package/$(PKG_NAME)
   DEPENDS += +umdns
   DEPENDS += +rpcd
   DEPENDS += +mod-dmext
+  DEPENDS += +hosts-manager
+  DEPENDS += +libtr181-hosts
   MENU:=1
 endef
 
@@ -67,7 +69,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
