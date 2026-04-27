@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dnssd
-RAW_VERSION:=sah-next-4.1_v1.4.1
+RAW_VERSION:=sah-next-4.1-lts_v1.4.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=dns service discovery plugin
 
-PKG_SOURCE:=tr181-dnssd-sah-next-4.1_v1.4.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next-4.1_v1.4.1
-PKG_HASH:=f61dcc4d05447ba7bc4d34150a28e8966ca66e029b585d55017c20241e08cc9a
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next-4.1_v1.4.1
+PKG_SOURCE:=tr181-dnssd-sah-next-4.1-lts_v1.4.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next-4.1-lts_v1.4.1
+PKG_HASH:=dfa5bcba0cafbb53f833914dc5dd0deb3314318f41468399e778a3d6d5c56e63
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next-4.1-lts_v1.4.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
