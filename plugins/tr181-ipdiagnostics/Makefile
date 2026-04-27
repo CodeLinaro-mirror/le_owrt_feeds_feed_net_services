@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-ipdiagnostics/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-ipdiagnostics
-RAW_VERSION:=sah-next-4.1_v0.13.2
+RAW_VERSION:=sah-next-4.1-lts_v0.13.2
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Speedtest plugin
 
-PKG_SOURCE:=tr181-ipdiagnostics-sah-next-4.1_v0.13.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-ipdiagnostics/-/archive/sah-next-4.1_v0.13.2
-PKG_HASH:=254246e44f70989f9f3fd214757642ce2847ba0827e03490db56051ad189ea33
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-ipdiagnostics-sah-next-4.1_v0.13.2
+PKG_SOURCE:=tr181-ipdiagnostics-sah-next-4.1-lts_v0.13.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-ipdiagnostics/-/archive/sah-next-4.1-lts_v0.13.2
+PKG_HASH:=4d4ae379f352ca35e84fba2953f66e475a4c1cdd570e357f9716b345e67e4263
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-ipdiagnostics-sah-next-4.1-lts_v0.13.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
