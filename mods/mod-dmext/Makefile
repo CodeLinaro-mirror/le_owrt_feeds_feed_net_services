@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-dmext
-RAW_VERSION:=sah-next-4.1_v0.1.3
+RAW_VERSION:=sah-next-4.1-lts_v0.1.3
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Data model extension module
 
-PKG_SOURCE:=mod-dmext-sah-next-4.1_v0.1.3.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next-4.1_v0.1.3
-PKG_HASH:=8dbe48f8602f1c98c47166a3a11c2c6f918962bfde8695455b1775fc95323766
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next-4.1_v0.1.3
+PKG_SOURCE:=mod-dmext-sah-next-4.1-lts_v0.1.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-dmext/-/archive/sah-next-4.1-lts_v0.1.3
+PKG_HASH:=074b1c881f9097c725d1b659b19a6abfb1b1eefec3d6e08dd12bcb7648eb937d
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-dmext-sah-next-4.1-lts_v0.1.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
