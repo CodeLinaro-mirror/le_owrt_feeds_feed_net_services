@@ -65,6 +65,14 @@ config SAH_AMX_TR181_DEVICEINFO_SCRIPT_DIR
     string "Parent directory where the pre/post hook scripts are stored"
     default "/etc/amx/deviceinfo-manager/scripts"
 
+config SAH_AMX_TR181_DEVICEINFO_SYSINIT_DONE_TIMEOUT
+    int "Maximum Timeout(seconds), set for loading data-model on device via sysinit_done"
+    default 5
+
+config SAH_AMX_TR181_DEVICEINFO_LUA_VERSION
+    string "Lua version provided by amx-lua package"
+    default "5.3"
+
 endmenu
 
 endif
