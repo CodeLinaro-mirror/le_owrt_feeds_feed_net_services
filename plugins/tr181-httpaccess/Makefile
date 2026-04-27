@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-httpaccess
-RAW_VERSION:=sah-next-4.1_v0.23.2
+RAW_VERSION:=sah-next-4.1-lts_v0.23.2
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 HTTPAccess model plugin
 
-PKG_SOURCE:=tr181-httpaccess-sah-next-4.1_v0.23.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/archive/sah-next-4.1_v0.23.2
-PKG_HASH:=b3d5ef3d635c9e3d6c5201f036798c9de359b901b437b4fe36e1f0339a46b849
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-httpaccess-sah-next-4.1_v0.23.2
+PKG_SOURCE:=tr181-httpaccess-sah-next-4.1-lts_v0.23.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-httpaccess/-/archive/sah-next-4.1-lts_v0.23.2
+PKG_HASH:=3c03d80965da0aec81258c30c74671326b39db20da7b4e970e1a952c09e8d658
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-httpaccess-sah-next-4.1-lts_v0.23.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
