@@ -1,15 +1,15 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.39.4)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.39.4)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-syslog
-PKG_VERSION:=sah-next-4.1_v0.2.2
+PKG_VERSION:=sah-next-4.1-lts_v0.2.2
 SHORT_DESCRIPTION:=TR-181 compatible syslog
 
-PKG_SOURCE:=tr181-syslog-sah-next-4.1_v0.2.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next-4.1_v0.2.2
-PKG_HASH:=078094f33799d6059092bb6aff130dd5b99c1fdfc7fff92109cd73843a2ed837
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next-4.1_v0.2.2
+PKG_SOURCE:=tr181-syslog-sah-next-4.1-lts_v0.2.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-syslog/-/archive/sah-next-4.1-lts_v0.2.2
+PKG_HASH:=98e6117738b09730e9394f15d8e6718fed5be6c85312f0dba067564c9979332b
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-syslog-sah-next-4.1-lts_v0.2.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
