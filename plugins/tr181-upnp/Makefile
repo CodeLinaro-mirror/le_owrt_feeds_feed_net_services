@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnp
-RAW_VERSION:=sah-next-4.1_v0.17.1
+RAW_VERSION:=sah-next-4.1-lts_v0.17.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=upnp manager
 
-PKG_SOURCE:=tr181-upnp-sah-next-4.1_v0.17.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/archive/sah-next-4.1_v0.17.1
-PKG_HASH:=7f6ddf46ab1a448d1fceda1e3026958a8e5e489be0e8c055604b73597e7135b3
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnp-sah-next-4.1_v0.17.1
+PKG_SOURCE:=tr181-upnp-sah-next-4.1-lts_v0.17.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnp/-/archive/sah-next-4.1-lts_v0.17.1
+PKG_HASH:=c0405e6660ed8340e5e5616ad583793cddc1570c65a3c7b1f3b29f49b7eb978a
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnp-sah-next-4.1-lts_v0.17.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
