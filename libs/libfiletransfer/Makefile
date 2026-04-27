@@ -1,15 +1,15 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.39.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.39.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libfiletransfer
-PKG_VERSION:=sah-next-4.1_v0.2.1
+PKG_VERSION:=sah-next-4.1-lts_v0.2.1
 SHORT_DESCRIPTION:=Libfiletransfer is a library providing an upload/download API for HTTP(s)
 
-PKG_SOURCE:=libfiletransfer-sah-next-4.1_v0.2.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/sah-next-4.1_v0.2.1
-PKG_HASH:=d178a273b8033a48e95a67728c4ebe9c2105a00bb31e3d7f162dd2e2afdb6f2f
-PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-sah-next-4.1_v0.2.1
+PKG_SOURCE:=libfiletransfer-sah-next-4.1-lts_v0.2.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libfiletransfer/-/archive/sah-next-4.1-lts_v0.2.1
+PKG_HASH:=688d9a73af044c660c0b47ad0463c7e5267f8222a9a096bf59ade68b6332ba70
+PKG_BUILD_DIR:=$(BUILD_DIR)/libfiletransfer-sah-next-4.1-lts_v0.2.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
