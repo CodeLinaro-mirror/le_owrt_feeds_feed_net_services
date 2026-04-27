@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=amx-processmonitor
-RAW_VERSION:=sah-next-4.1_v0.2.2
+RAW_VERSION:=sah-next-4.1-lts_v0.2.2
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=monitor processes
 
-PKG_SOURCE:=amx-processmonitor-sah-next-4.1_v0.2.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next-4.1_v0.2.2
-PKG_HASH:=eb80d12938d1b170b3fa03c7916625d2336aba0aa55e10df4d08e453180102b3
-PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next-4.1_v0.2.2
+PKG_SOURCE:=amx-processmonitor-sah-next-4.1-lts_v0.2.2.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/archive/sah-next-4.1-lts_v0.2.2
+PKG_HASH:=7505a179a5efae90622b332c0e95afca240e9eaec0e365d145987294b87d6fc3
+PKG_BUILD_DIR:=$(BUILD_DIR)/amx-processmonitor-sah-next-4.1-lts_v0.2.2
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
