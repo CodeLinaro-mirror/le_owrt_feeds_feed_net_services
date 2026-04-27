@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-upnpdiscovery
-RAW_VERSION:=sah-next-4.1_v0.11.1
+RAW_VERSION:=sah-next-4.1-lts_v0.11.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=upnp discovery manager
 
-PKG_SOURCE:=tr181-upnpdiscovery-sah-next-4.1_v0.11.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next-4.1_v0.11.1
-PKG_HASH:=d6b4e640af11699324ba69281098747c5ff3573d3dc7bcd4af0bea6ea49f1cad
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next-4.1_v0.11.1
+PKG_SOURCE:=tr181-upnpdiscovery-sah-next-4.1-lts_v0.11.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-upnpdiscovery/-/archive/sah-next-4.1-lts_v0.11.1
+PKG_HASH:=cb0d682d0de9392777fd778889f28d9f7bf696459bfc9d27201ed0e0f8491ea7
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-upnpdiscovery-sah-next-4.1-lts_v0.11.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -69,7 +69,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
