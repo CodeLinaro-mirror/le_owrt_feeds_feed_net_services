@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deviceinfo-manager
-RAW_VERSION:=sah-next-4.1_v4.5.2
+RAW_VERSION:=sah-next-4.1_v4.6.0
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 compatible DeviceInfo plugin
 
-PKG_SOURCE:=tr181-deviceinfo-sah-next-4.1_v4.5.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next-4.1_v4.5.2
-PKG_HASH:=0d5037d52d69f3ea80d65943a05adf199e0d5d1e7973624a38c22ed678401c63
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next-4.1_v4.5.2
+PKG_SOURCE:=tr181-deviceinfo-sah-next-4.1_v4.6.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-deviceinfo/-/archive/sah-next-4.1_v4.6.0
+PKG_HASH:=3609ab4670259aecfb46262e7e39af3f361d02eb239addd44159b5514899188d
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-deviceinfo-sah-next-4.1_v4.6.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
