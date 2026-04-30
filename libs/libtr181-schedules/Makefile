@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libtr181-schedules
-RAW_VERSION:=sah-next-4.2_v0.1.1
+RAW_VERSION:=sah-next-4.2_v0.2.0
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Library to easily subscribe on schedules events
 
-PKG_SOURCE:=libtr181-schedules-sah-next-4.2_v0.1.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/sah-next-4.2_v0.1.1
-PKG_HASH:=c34bcc426e729e4cb46975a79dee71790e829be56c73d6c6c1341bf4569af185
-PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-sah-next-4.2_v0.1.1
+PKG_SOURCE:=libtr181-schedules-sah-next-4.2_v0.2.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libtr181-schedules/-/archive/sah-next-4.2_v0.2.0
+PKG_HASH:=0093bfb7f8e5eebfc4d7d0af4f8d43c2da02f66aa863f2f1293c314b4a816bec
+PKG_BUILD_DIR:=$(BUILD_DIR)/libtr181-schedules-sah-next-4.2_v0.2.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -51,7 +51,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
