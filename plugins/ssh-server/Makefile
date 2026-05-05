@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ssh-server
-RAW_VERSION:=sah-next-4.1-lts_v0.0.2
+RAW_VERSION:=sah-next-4.1-lts_v0.1.0
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Process Controller Data Model - dropbear
 
-PKG_SOURCE:=ssh-server-sah-next-4.1-lts_v0.0.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/archive/sah-next-4.1-lts_v0.0.2
-PKG_HASH:=0dc8c83064eec6ddf461ff7109b9775957a516951d9714a77e619a66162d45fc
-PKG_BUILD_DIR:=$(BUILD_DIR)/ssh-server-sah-next-4.1-lts_v0.0.2
+PKG_SOURCE:=ssh-server-sah-next-4.1-lts_v0.1.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/ssh-server/-/archive/sah-next-4.1-lts_v0.1.0
+PKG_HASH:=51580673e7d1ab05a100eb606b16eb08d1f88a950284675ec2bb3486d12ad89b
+PKG_BUILD_DIR:=$(BUILD_DIR)/ssh-server-sah-next-4.1-lts_v0.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
