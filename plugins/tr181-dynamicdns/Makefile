@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dynamicdns
-RAW_VERSION:=sah-next-4.1_v1.0.0
+RAW_VERSION:=sah-next-4.1_v1.1.0
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=DynamicDNS plugin
 
-PKG_SOURCE:=tr181-dynamicdns-sah-next-4.1_v1.0.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next-4.1_v1.0.0
-PKG_HASH:=7bdc7ebc39221b7784ed25585bdc28a74de36fc9aeaa4222866d57bf6d596f07
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next-4.1_v1.0.0
+PKG_SOURCE:=tr181-dynamicdns-sah-next-4.1_v1.1.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dynamicdns/-/archive/sah-next-4.1_v1.1.0
+PKG_HASH:=c798dfa9e4ce6febda8253e08d1a3d30982b1cd35e6edbb8b6a2770f49d759c9
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dynamicdns-sah-next-4.1_v1.1.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -80,7 +80,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
