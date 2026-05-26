@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-usermanagement
-RAW_VERSION:=sah-next-4.1_v0.34.0
+RAW_VERSION:=sah-next-4.1_v0.34.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=tr181 user management plugin
 
-PKG_SOURCE:=tr181-usermanagement-sah-next-4.1_v0.34.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next-4.1_v0.34.0
-PKG_HASH:=ceedd80563a7770cb501d3ddd7f68ecfbc6acd46485d0ae5ae87048734b5a447
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next-4.1_v0.34.0
+PKG_SOURCE:=tr181-usermanagement-sah-next-4.1_v0.34.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-usermanagement/-/archive/sah-next-4.1_v0.34.1
+PKG_HASH:=51ddb5882caf2b53230f8507492d1556b383f6fe2cfd1cee7c793cb8ac073a7b
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-usermanagement-sah-next-4.1_v0.34.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -18,6 +18,7 @@ PKG_LICENSE_FILES:=LICENSE
 COMPONENT:=tr181-usermanagement
 
 PKG_RELEASE:=1
+PKG_BUILD_DEPENDS += amxo-cg/host
 
 define SAHInit/Install
 	install -d $(1)/etc/rc.d/
