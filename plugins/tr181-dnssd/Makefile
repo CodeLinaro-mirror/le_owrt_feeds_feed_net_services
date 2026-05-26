@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-dnssd
-RAW_VERSION:=sah-next-4.2_v1.4.1
+RAW_VERSION:=sah-next-4.2_v1.5.0
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=dns service discovery plugin
 
-PKG_SOURCE:=tr181-dnssd-sah-next-4.2_v1.4.1.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next-4.2_v1.4.1
-PKG_HASH:=6e29b4596e50a113e1593802781070e9c3fbeb4c1349f3607e79b191bbcf8095
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next-4.2_v1.4.1
+PKG_SOURCE:=tr181-dnssd-sah-next-4.2_v1.5.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-dnssd/-/archive/sah-next-4.2_v1.5.0
+PKG_HASH:=b3a35d4f28fe098c87a0753a47d6e8e00de7685a73412e5528eef8c595b0c529
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-dnssd-sah-next-4.2_v1.5.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
