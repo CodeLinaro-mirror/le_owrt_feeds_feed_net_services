@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/modules/mod-pcm-svc/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-pcm-svc
-RAW_VERSION:=sah-next-4.2_v2.0.0
+RAW_VERSION:=sah-next-4.2_v2.0.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Upgrade Persistent Configuration Manager service module
 
-PKG_SOURCE:=mod-pcm-svc-sah-next-4.2_v2.0.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-pcm-svc/-/archive/sah-next-4.2_v2.0.0
-PKG_HASH:=44370501d3941a171007282e3de0a39d1a6d101750a19d86b0a5dc47c03e7518
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-pcm-svc-sah-next-4.2_v2.0.0
+PKG_SOURCE:=mod-pcm-svc-sah-next-4.2_v2.0.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-pcm-svc/-/archive/sah-next-4.2_v2.0.1
+PKG_HASH:=d65059c1bbb83e1fcedadcf601b88f4a5a0682d4055f88e5f8774dc6d0224fab
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-pcm-svc-sah-next-4.2_v2.0.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
