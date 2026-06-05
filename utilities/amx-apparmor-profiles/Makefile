@@ -4,12 +4,12 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=amx-apparmor-profiles
-RAW_VERSION:=v4.20.36
+RAW_VERSION:=v4.20.37
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=AppArmor profiles for amx plugins
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v4.20.36
+PKG_SOURCE_VERSION:=v4.20.37
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/amx-apparmor-profiles.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
