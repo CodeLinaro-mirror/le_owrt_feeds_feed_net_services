@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-security/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-security
-RAW_VERSION:=sah-next-4.1_v0.2.2
+RAW_VERSION:=sah-next-4.1_v0.2.3
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 compatible security plugin
 
-PKG_SOURCE:=tr181-security-sah-next-4.1_v0.2.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-security/-/archive/sah-next-4.1_v0.2.2
-PKG_HASH:=1ab767c78495c5d755797b1d2faa706bebbbea475e8b1536b6809b1642fc771a
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-security-sah-next-4.1_v0.2.2
+PKG_SOURCE:=tr181-security-sah-next-4.1_v0.2.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-security/-/archive/sah-next-4.1_v0.2.3
+PKG_HASH:=6d86c15614a49db57c57c12c99266092ab02644970ead7897a14676899d7c379
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-security-sah-next-4.1_v0.2.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -63,7 +63,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
