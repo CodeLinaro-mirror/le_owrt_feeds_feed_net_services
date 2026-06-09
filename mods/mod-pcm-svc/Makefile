@@ -3,14 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mod-pcm-svc
-RAW_VERSION:=sah-next-4.2_v2.1.0
+RAW_VERSION:=sah-next-4.2_v2.1.1
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Upgrade Persistent Configuration Manager service module
 
-PKG_SOURCE:=mod-pcm-svc-sah-next-4.2_v2.1.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-pcm-svc/-/archive/sah-next-4.2_v2.1.0
-PKG_HASH:=f5fc86bbbce5af85dd967b41772b773f0cbcf65399d081b025f56ac5928637dd
-PKG_BUILD_DIR:=$(BUILD_DIR)/mod-pcm-svc-sah-next-4.2_v2.1.0
+PKG_SOURCE:=mod-pcm-svc-sah-next-4.2_v2.1.1.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/modules/mod-pcm-svc/-/archive/sah-next-4.2_v2.1.1
+PKG_HASH:=ad952624a6ddc4cad434a66ea94287d0f66ee26027823484a85318db4e7b2ff5
+PKG_BUILD_DIR:=$(BUILD_DIR)/mod-pcm-svc-sah-next-4.2_v2.1.1
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
