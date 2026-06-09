@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version master)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libdiscoping/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libdiscoping
-RAW_VERSION:=sah-next-4.2_v0.1.2
+RAW_VERSION:=sah-next-4.2_v0.1.3
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=Library discovering when IPs appear and disappear
 
-PKG_SOURCE:=libdiscoping-sah-next-4.2_v0.1.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libdiscoping/-/archive/sah-next-4.2_v0.1.2
-PKG_HASH:=f8a105e48f8a07ee2456fbe85ce56e71d321aa2a180b72a2d0e451e49b894207
-PKG_BUILD_DIR:=$(BUILD_DIR)/libdiscoping-sah-next-4.2_v0.1.2
+PKG_SOURCE:=libdiscoping-sah-next-4.2_v0.1.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libdiscoping/-/archive/sah-next-4.2_v0.1.3
+PKG_HASH:=2cf31cdcfef36a21026722dd7bdfacd965072d6c13e6f6f8678bfcc6996e1c71
+PKG_BUILD_DIR:=$(BUILD_DIR)/libdiscoping-sah-next-4.2_v0.1.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -51,7 +51,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
