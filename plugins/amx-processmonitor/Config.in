@@ -1,0 +1,26 @@
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/amx-processmonitor/-/blob/main/baf.yml instead
+config PACKAGE_amx-processmonitor
+    tristate
+    select SAH_AMX_PROCESSMONITOR
+
+if PACKAGE_amx-processmonitor
+
+menu "Select amx-processmonitor build options"
+    depends on PACKAGE_amx-processmonitor
+
+config SAH_AMX_PROCESSMONITOR
+    bool "Build processmonitor plugin"
+    default y
+
+config SAH_AMX_PROCESSMONITOR_RUN_AS_USER
+    string "User will be used for the amx-processmonitor plugin"
+    default "root"
+
+config SAH_AMX_PROCESSMONITOR_RUN_AS_GROUP
+    string "Group will be used for the amx-processmonitor plugin"
+    default "root"
+
+endmenu
+
+endif
