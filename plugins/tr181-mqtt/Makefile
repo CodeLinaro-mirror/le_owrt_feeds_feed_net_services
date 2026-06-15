@@ -1,16 +1,16 @@
-# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.40.3)
+# WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version 2.40.6)
 # WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/plugins/tr181-mqtt/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-mqtt
-RAW_VERSION:=sah-next-4.1-lts_v0.2.2
+RAW_VERSION:=sah-next-4.1-lts_v0.2.3
 PKG_VERSION:=$(if $(filter v0% v1% v2% v3% v4% v5% v6% v7% v8% v9%,$(RAW_VERSION)),$(patsubst v%,%,$(RAW_VERSION)),$(RAW_VERSION))
 SHORT_DESCRIPTION:=TR-181 compatible MQTT client
 
-PKG_SOURCE:=tr181-mqtt-sah-next-4.1-lts_v0.2.2.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-mqtt/-/archive/sah-next-4.1-lts_v0.2.2
-PKG_HASH:=c6dc515631cd11c8d9e3be6dcf7df084a8e98f49bc7d311979d38f67a299ae56
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-mqtt-sah-next-4.1-lts_v0.2.2
+PKG_SOURCE:=tr181-mqtt-sah-next-4.1-lts_v0.2.3.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-mqtt/-/archive/sah-next-4.1-lts_v0.2.3
+PKG_HASH:=3273acb084d707e168631398631f3b04b94e0171f54b8f4a48e4301ddefde102
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-mqtt-sah-next-4.1-lts_v0.2.3
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -67,7 +67,9 @@ define Build/InstallDev
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+	if [ -d $(PKG_INSTALL_DIR) ]; then \
+		$(CP) $(PKG_INSTALL_DIR)/* $(1)/; \
+	fi
 	if [ -d ./files ]; then \
 		$(CP) ./files/* $(1)/; \
 	fi
