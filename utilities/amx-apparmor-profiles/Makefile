@@ -4,11 +4,11 @@ include $(TOPDIR)/rules.mk
 -include $(STAGING_DIR)/components.config
 
 PKG_NAME:=amx-apparmor-profiles
-PKG_VERSION:=sah-next-4.1-lts_v4.19.3
+PKG_VERSION:=lts_prplos_4.1.0_v4.19.3
 SHORT_DESCRIPTION:=AppArmor profiles for amx plugins
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=sah-next-4.1-lts_v4.19.3
+PKG_SOURCE_VERSION:=lts_prplos_4.1.0_v4.19.3
 PKG_SOURCE_URL:=https://$(SAH_GIT_USER):$(SAH_GIT_TOKEN)@$(SAH_GIT)/$(SAH_GIT_GROUP)/amx-apparmor-profiles.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
