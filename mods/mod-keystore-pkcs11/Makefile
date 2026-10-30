@@ -30,6 +30,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +libamxp
   DEPENDS += +libopenssl
   DEPENDS += +libsahtrace
+  DEPENDS += +libp11
   MENU:=1
 endef
 
